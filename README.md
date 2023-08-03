@@ -1,6 +1,6 @@
 - do u know when u run javascript code alot of things happen behind the scene inside **javascript engine**
 - Everything in javascript happens inside an **execution context**
-- javascript isn't possible without this beautiful exectuion context
+- javascript isn't possible without this beautiful execution context
 
 # what happens when u run Javascript Code?
 
@@ -14,17 +14,16 @@
           square4 = square(4);
 - execution context created in 2 phases
 
-1. memory creation phase
-2. code execution phase
+1. **memory creation phase**
+2. **code execution phase**
 
-# let us see what happens in first phase
+**let us see what happens in memory creation phase**
 
-- in first phase javascript **allocate memory** to all variables and functions
-- as soon as js encounter line 1 it will allocate memory to n
-- let us allocate memory to n it will reserve a memory space for n
-- similarly now javascript goes to the line 2 in this it sees that there is a function which is named as square now it will allocate some memory for square
+- in first phase javascript **allocate memory to all variables and functions**
+- as soon as JS encounter line 1 it will allocate memory to n so it will reserve a memory space for n
+- similarly now javascript goes to the line 2 in this it sees that there is a function which is named as **square** now it will allocate some memory for square
 - When it allocates memory to n it stores special value which is known as **undefined** and incase of functions it literally **stores the whole code of the function inside this memory space**
-- now it will allocate memory to square2 and square4 as well as there are another variables it will again store undefined for them
+- now it will allocate memory to square2 and square4 as well **as there are another variables it will again store undefined for them**
 
 **summary**
 
