@@ -12,6 +12,9 @@
           }
           square2 = square(n);
           square4 = square(4);
+
+![Alt text](global_execution_stack.jpg)
+
 - execution context created in 2 phases
 
 1. memory creation phase
@@ -59,6 +62,8 @@
 - function invocation inside again function invocation and all these things so its is very difficult for js engine to manage and it does it very beautifully
 - it handles everything to manage this exectuion context creation and deletion and the control it manages the stack it's known as **callstack**
 - this is beautiful thing in javascript **it has its own call stack**
+
+![Alt text](call_stack.jpg)
 
 **what is a call stack ?**
 
