@@ -17,7 +17,7 @@
 
 - execution context created in 2 phases
 
-1. memory creation phase
+1. **memory creation phase**
 2. **code execution phase**
 
 **let us see what happens in first phase which is a memory creation phase ?**
