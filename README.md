@@ -51,6 +51,8 @@
 
   what do u mean by function invocation?
 
+  ![Alt text](Rent_Receipt.jpg)
+
 - **whenever u see function name with parentheses it means that function is now being executed**
 
 # don't u think that this is all too much to manage for javascript engine?
