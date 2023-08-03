@@ -49,9 +49,7 @@
 - as soon as this function invokation happens again brand new execution context will be created
 - so as soon as Javascript done with all its work now the program is finished so what will happen is the **whole global execution context also deletes**. it goes off
 
-  what do u mean by function invocation?
-
-  ![Alt text](Rent_Receipt.jpg)
+**what do u mean by function invocation?**
 
 - **whenever u see function name with parentheses it means that function is now being executed**
 
