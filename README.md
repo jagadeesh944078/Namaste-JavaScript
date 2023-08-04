@@ -106,6 +106,8 @@
 
 ## Scope Chain Scope & Lexical Environment
 
+### Scope
+
 - scope means where u can access a specific function or variable in our code
 - there are 2 aspects to it
 -     function a() {
@@ -120,7 +122,7 @@
 - so first what is the scope of this variable b that means where i can access this variable b that is scope and other way is **is b inside the scope of the function c** that means can i access this b inside c
 - scope is directly dependent on lexical environment
 
-- **Lexical Environment**
+### Lexical Environment
 
 - whenever execution context is created a lexical environment also created
 - lexical environment is the local memory and reference to the lexical environment of it parent when i say i parent its a lexical parent where actually that function sits inside that code
@@ -141,7 +143,7 @@
 - c function physcially present inside a function that means c function lexically present inside a function and a function lexically inside global scope so this is known as lexical
 - when i say lexical environment means its local memory along with lexical environment of its parent
 
-**Scope Chain**
+### Scope Chain
 
 - Javascript engine first looks for its variable or function inside the local memory of that function if not found it keeps on searching the lexical environment of its parent until it finds the variable or function being accessed this mechanism is called **Scope Chain**
 - if the variable accessed is not found in **Scope Chain** then you will get variable is not defind error in the browser consoel
