@@ -122,3 +122,4 @@
         console.log("Namasthe Javascript");
       }
 - even in this case also it behave just like variable only
+- <a href="/[Title](index.js)">Javascript</a>
