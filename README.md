@@ -48,16 +48,17 @@
 
 - empty javascript file only Shortest Javascript Program
 - eventhough file is empty Javascript doing lot things behind the scene
-- when u run empty javascript file still javascript do its job it creates **GES(Global execution context)** also sets up memory spacethough there is nothing to setup still it does it job
+- when u run empty javascript file still javascript do its job it creates **GES(Global execution context)** also sets up memory space eventhough there is nothing to setup still it does it job
 - javascript also creates something known as **window** here just go to developer console in browser write window & execute it willgive **window object**
 - window object contains alot of funtions and variables and u can use these functions and variables anywhere in your javascript program
 - this functionality given us by javascrpit engine
 - just like **window** JS also creates **this** keyword
-- global level this
-  **what is window object**
+
+**what is window object**
+
 - window is actually a global object which is created along with the Global Execution Context
 - whenever any JS program is run global object is created
-  and global execution context created along with that this variable is created
+  and global execution context created along with that **this** variable is created
 - this global object in case of browser **its window** and in case of node **its something else**
 - eventhough file is empty javascript creates its global object
 - at global level **this === window** is true
