@@ -1,5 +1,5 @@
 **let us now see what happens in second phase which is a code execution phase?**
-![Alt text](<global_execution_stack (1).jpg>)
+![Alt text](imgonline-com-ua-resize-SHqmEoBfTrC7JH.jpg)
 
 - second phase is code execution phase
 - in this phase this **value 2** over here of n is now being placed actually in this placeholder or the identifier which is n now so **value 2 in the second phase allocated in the place of undefined**
