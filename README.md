@@ -39,7 +39,7 @@
         var x = 100;
         console.log(x);
       }
-      **output:**
-       10
-       100
-       1
+- **output:**
+  10
+  100
+  1
