@@ -122,4 +122,4 @@
         console.log("Namasthe Javascript");
       }
 - even in this case also it behave just like variable only
-- <a href="/[Title](index.js)">Javascript</a>
+- <a href="https://github.com/jagadeesh944078/Namaste-JavaScript/blob/main/index.js">Javascript</a>
