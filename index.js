@@ -39,3 +39,15 @@
 //   var x = 100;
 //   console.log(x);
 // }
+
+function a() {
+  var x = 5;
+  console.log(b);
+  c();
+  function c() {
+    console.log(b);
+    console.log(x);
+  }
+}
+var b = 10;
+a();

@@ -137,6 +137,7 @@
         }
         a();
         console.log(b);
+- ![Alt text](scope_chain.jpg)
 
 - lexical means **in order** or **in hierarchy**
 - **c function** lexically sit inside the **a function** that means **in order** or **in hierarchy**
