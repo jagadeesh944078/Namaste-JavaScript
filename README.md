@@ -1,6 +1,9 @@
 - do u know when u run javascript code alot of things happen behind the scene inside **javascript engine**
 - Everything in javascript happens inside an **execution context**
 - javascript isn't possible without this beautiful execution context
+- javascript is loosely typed language so loosely typed means it does not attach any specific data type to its variables
+- so suppose if i created a and assigned string value later on in the program i can assign number as well
+- javascript also known as weekly typed language its not week at all infact i feel that language is more stronger because when u give string value it takes value handle behind the scene and if u give number it takes that value and puts number in it and manages all these things behind the scene so infact i feel that its more flexiable and beautiful
 
 ## what happens when u run Javascript Code?
 
@@ -83,3 +86,19 @@
       console.log(a);
       console.log(this.a);
       console.log(x);
+
+## undefined vs not defined
+
+- **undefined is special keyword in javascript its not there in other languages**
+- javascript allocate memory to functions and variables even before executing single line of the code
+- undefined is like a placeholder which is placed in the memory that special keyword is undefined
+- undefined is very diffrent then the not defined
+- **not undefined** means javascript even not allocation memory for that
+- **undefined !== not undefined** some people think undefined means its not taking any memory no its a special keyword it takes up its own memory u can assume it to like a placeholder which is kept for the timebeing until variable is assigned some other value
+- dont put **a = undefined** its not a good practise to do that because javascipr its self provide that special keyword if u dont assign value
+-     var a;
+      if(a === undefined) {
+        console.log("a is undefined");
+      } else {
+        console.log("a is not undefined");
+      }
