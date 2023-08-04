@@ -13,14 +13,10 @@
           square2 = square(n);
           square4 = square(4);
 
-![Alt text](global_execution_stack.jpg)
-
-- execution context created in 2 phases
+**- execution context created in 2 phases**
 
 1. **<a href="/Memory_Creation.Md">memory creation phase </a>**
-2. **<a href="/Code_Excecution.md">code execution phase/a>**
-
-- **<a href="/Code_Excecution.md">Javascript Code Execution Flow</a>**
+2. **<a href="/Code_Excecution.md">code execution phase</a>**
 
 # what is Hoisting and How Hoisting Works?
 
