@@ -1,5 +1,6 @@
 **let us see what happens in first phase which is a memory creation phase ?**
-![Alt text](code_execution-1.jpg)
+
+- ![Alt text](code_execution-1.jpg)
 
 - in first phase javascript **allocate memory to all variables and functions**
 - as soon as JS encounter line 1 it will allocate memory to n so it will reserve a memory space for n
