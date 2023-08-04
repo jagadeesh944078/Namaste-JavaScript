@@ -104,7 +104,7 @@
         console.log("a is not undefined");
       }
 
-## Scope Chain Scope & Lexical Environment
+## Scope Chain & Scope & Lexical Environment
 
 ### Scope
 
