@@ -1,4 +1,4 @@
-- ![Alt text](call_stack-1.jpg)
+- ![Alt text](call_stack.jpg)
 
 - **its a stack and everytime in the bottom of the stack we have our global execution context**
 - that means whenever any js program is run this call stack is populated with this global execution context
