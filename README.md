@@ -2,7 +2,7 @@
 - Everything in javascript happens inside an **execution context**
 - javascript isn't possible without this beautiful execution context
 
-# what happens when u run Javascript Code?
+## what happens when u run Javascript Code?
 
 - when we run javascript program **Global Execution Context** will be created
 -         var n =2;
@@ -18,14 +18,15 @@
 1. **<a href="/Memory_Creation.Md">memory creation phase </a>**
 2. **<a href="/Code_Excecution.md">code execution phase</a>**
 
-# what is Hoisting and How Hoisting Works?
+## what is Hoisting and How Hoisting Works?
 
 - **<a href="/Hoisting.md">Hoisting</a>**
 
-# Function Invocation & Variable Environment
+## Function Invocation & Variable Environment
 
-- we can invoke the function even before initialization because of hoisting in Js
-  **Example**
+**- we can invoke the function even before initialization because of hoisting in Js**
+
+- **Example**
 -     var x =1;
       a();
       b();
