@@ -4,8 +4,28 @@
 
 # what happens when u run Javascript Code?
 
+- when we run javascript program **Global Execution Context** will be created
+-         var n =2;
+          function square(n) {
+            var num = n * n;
+            return num;
+          }
+          square2 = square(n);
+          square4 = square(4);
+
+![Alt text](global_execution_stack.jpg)
+
+- execution context created in 2 phases
+
+1. **<a href="/Memory_Creation.Md">memory creation phase </a>**
+2. **<a href="/Code_Excecution.md">code execution phase/a>**
+
 - **<a href="/Code_Excecution.md">Javascript Code Execution Flow</a>**
 
 # what is Hoisting and How Hoisting Works?
 
 - **<a href="/Hoisting.md">Hoisting</a>**
+
+# Function Invocation & Variable Environment
+
+- we can invoke the function even before initialization because of hoisting in Js
