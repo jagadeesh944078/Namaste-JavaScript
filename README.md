@@ -125,8 +125,8 @@
 ### Lexical Environment
 
 - whenever execution context is created a lexical environment also created
-- lexical environment is the local memory and reference to the lexical environment of it parent when i say i parent its a lexical parent where actually that function sits inside that code
-- in below example you can see c is lexically inside a so c lexical parent is a and a lexical is parent is global
+- lexical environment is the local memory and reference to the lexical environment of it parent when i say parent its lexical parent where actually that function sits inside that code
+- in below example you can see **c** is lexically inside **a** so **c** lexical parent is **a** and **a** lexical is parent is **global execution context**
 
 -       function a() {
             var b =10;
@@ -139,9 +139,9 @@
         console.log(b);
 
 - lexical means **in order** or **in hierarchy**
-- c function lexically sit inside the a function that means **in order** or **in hierarchy**
-- c function physcially present inside a function that means c function lexically present inside a function and a function lexically inside global scope so this is known as lexical
-- when i say lexical environment means its local memory along with lexical environment of its parent
+- **c function** lexically sit inside the **a function** that means **in order** or **in hierarchy**
+- **c function** physcially present inside **a function** that means **c function** lexically present inside **a function** and **a function** lexically inside **global scope** so this is known as **lexical**
+- when i say lexical environment means its **local memory along with lexical environment of its parent**
 
 ### Scope Chain
 
