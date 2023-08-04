@@ -24,7 +24,7 @@
 
 ## Function Invocation & Variable Environment
 
-**- we can invoke the function even before initialization because of hoisting in Js**
+**- we can invoke the function even before initialization because of hoisting**
 
 - **Example**
 -     var x =1;
@@ -39,3 +39,7 @@
         var x = 100;
         console.log(x);
       }
+      **output:**
+       10
+       100
+       1
