@@ -14,3 +14,6 @@
 - **undefined is like placeholder, a special keyword in JS**
 - incase of functions this function square this whole function code literally(you can assume it to be) copied over here in the memory space that's how it is
 - for the remaining 2 variables again allocates memory and store specical keyword **undefined** to them
+
+**Code Execution Phase**
+**<a href="/Code_Excecution.md">code execution phase</a>**
