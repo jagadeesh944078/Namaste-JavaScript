@@ -46,6 +46,7 @@
   10
   100
   1
+- ![Alt text](function_invocation.jpg)
 
 ### do u know What is Shortest Javascript Program?
 
