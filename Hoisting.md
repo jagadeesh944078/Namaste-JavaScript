@@ -38,5 +38,3 @@
         console.log("Namasthe Javascript");
       }
 - even in this case also it behave just like variable only
-- if u want more deep information with alot of example refer below link
-- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let

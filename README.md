@@ -225,3 +225,5 @@
 - here for const a if u are trying assigne some other value later on you will get an error like **TypeError: Assignment to constant variable**
   **what is TypeError?**
 - you are trying to initialize other value for the constant type here you can assume it to be **a** is type const it should be declared and initialized at the same time here its **TypeError**
+- if u want more deep information with alot of example refer below link
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
