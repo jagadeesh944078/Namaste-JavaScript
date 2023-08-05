@@ -149,3 +149,79 @@
 - Javascript engine first looks for its variable or function inside the local memory of that function if not found it keeps on searching the lexical environment of its parent until it finds the variable or function being accessed this mechanism is called **Scope Chain**
 - if the variable accessed is not found in **Scope Chain** then you will get variable is not defind error in the browser consoel
 - The whole chain of lexical environment is known as **Scope Chain**
+
+## what is Temporal Dead Zone? && Are let & const declaration are hoisted && Syntax Error vs Reference Error vs Type Error
+
+-      console.log(a);
+       let a = 10;
+       var b = 1;
+
+### are let & const declarations are hoisted?
+
+- yes **let & const declarations are hoisted** but they are hoisted very diffrently then var hoisted
+- when u are trying to access let & const declaration it gives error in browser console u can access before initializtion so here only its saying this value (a value) in temporal dead zone for time being
+- u can say these are in temporal Dead Zone for time being
+- memory was assigned to b to the var declaration and this variable b attached to the global object incase of let & const they are also allocated memory that is only called hoisted but they are stored in separate memory space then global object
+- and you can not access this memory space this **let & const values** before you put some value in them that is what hoisting in let & const
+- suppose for **b** you can access **window.b** but for **a** you can not access using **this or window** because **a** not attached to the **global object**
+- here u can say **let** little more strict then **var**
+
+- **what is best way to avoid temporal dead zone issues?**
+
+- **always try to put declaration & initialization on the top to avoid temporal dead zone so that as soon as code starts it hits the initialization part first so you wont get alot of unexpected error**
+- **you can say we are shrinking temporal dead zone to zero while moving initialization to the top**
+
+### what is the Temporal Dead Zone?
+
+- Temporal Dead Zone is the time since this let variable was hoisted and till it is initialized some value **that time between that is known as temporal Dead zone**
+- in simple words we can say from hoisting till it is initialized with some value that phase is known as **Temporal Dead zone**
+
+### what is the Reference Error?
+
+- whenever you are trying access variable which is in Temporal Dead Zone it gives You **Reference Error** so u can not access it until its assigned with some value
+- if suppose you are trying to access any value(ex: x) which is not initialized in the code then also you will get **Reference error** says x is not defined
+- when javascript trying to findout specific variable inside memory space and you can not access it then it gives us **Reference error**
+
+- **Reference Error example1**
+-          console.log(a);
+           let a = 10;
+
+- another reference error is you are trying access x value which is not even there stored in memory space then you will get Reference Error
+
+- **Reference Error example2**
+-          console.log(x);
+           let a = 10;
+
+### what is the Syntax Error?
+
+- **Syntax Error example1**
+-        let a = 10;
+         let a = 5;
+         var a = 4;
+- using let keyword redeclaration not possiable with same name here **ex :** if u redeclare with same **let a** again in the same scope it will give **Syntax Error** like **identifier a has been declared already** even if you use **var a** also its same but **you can declare var b =1; and var b =2 twice**
+
+-        console.log("hello javascript");
+         let a = 10;
+         let a = 5;
+
+- **no code will be run** example: in above program even if u write on the top also it does not even reach single line of code it just affront says its not possible
+
+### diffrence between let & const
+
+- **const** is more strict then **let**
+
+**Syntax Error example2**
+
+-       let a;
+        a = 10;
+        const a;
+
+- incase of let you can declare value first and intialize value later on but if you use const you have to initialize value at the time of declaration only otherwise browser will throw error like **SyntaxError:Missing initializer in const declaration**
+
+**TypeError example**
+
+-       const a =1000;
+              a =2000;
+- here for const a if u are trying assigne some other value later on you will get an error like **TypeError: Assignment to constant variable**
+  **what is TypeError?**
+- you are trying to initialize other value for the constant type here you can assume it to be **a** is type const it should be declared and initialized at the same time here its **TypeError**
