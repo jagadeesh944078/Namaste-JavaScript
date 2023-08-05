@@ -158,10 +158,10 @@
 
 ### are let & const declarations are hoisted?
 
-- yes **let & const declarations are hoisted** but they are hoisted very diffrently then var hoisted
-- when u are trying to access let & const declaration it gives error in browser console u can access before initializtion so here only its saying this value (a value) in temporal dead zone for time being
+- yes **let & const declarations are hoisted** but they are hoisted very diffrently then **var hoisted**
+- when u are trying to access **let & const declarations** it gives error in browser console **u can not access before initializtion** so here only its saying this value (a value) in temporal dead zone for time being
 - u can say these are in temporal Dead Zone for time being
-- memory was assigned to b to the var declaration and this variable b attached to the global object incase of let & const they are also allocated memory that is only called hoisted but they are stored in separate memory space then global object
+  -suppose memory was assigned to **b** to the var declaration and this variable **b** attached to the global object incase of **let & const** for them also allocated memory that is only called hoisted but they are stored in separate memory space then global object
 - and you can not access this memory space this **let & const values** before you put some value in them that is what hoisting in let & const
 - suppose for **b** you can access **window.b** but for **a** you can not access using **this or window** because **a** not attached to the **global object**
 - here u can say **let** little more strict then **var**
