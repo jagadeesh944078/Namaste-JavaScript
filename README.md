@@ -223,7 +223,106 @@
 -       const a =1000;
               a =2000;
 - here for const a if u are trying assigne some other value later on you will get an error like **TypeError: Assignment to constant variable**
-  **what is TypeError?**
+- **what is TypeError?**
 - you are trying to initialize other value for the constant type here you can assume it to be **a** is type const it should be declared and initialized at the same time here its **TypeError**
 - if u want more deep information with alot of example refer below link
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
+
+### what is Block?
+
+- Block is defined by curly braces **{}** this is perfectly valid javascript code
+-      {
+         // this block also known as compound statement**
+       }
+- Block is Combining multiple line of javascript code into group
+-      {
+          var a=10;
+          console.log(a);
+       }
+
+- **why do we need to group all these statements together?**
+
+- we need to group all these statements together so that we can use multiple statements in the place where javascript expects the single statement
+- suppose if we write simply **if(true)** then you will get **SyntaxError:Unexpected end of input** that means its expecting one statement so even if u write **if(true) true** it is correct but if u want to write multiline code as a single statement in the place where javascript expects the single statement then we use **block**
+- **example**
+-      if(true) {
+           var a = 10;
+           console.log(a);
+       }
+
+### What is Block Scope?
+
+- what are all variables and functions we can access inside that block is known as **Block Scope**
+
+-     {
+         var a=10;
+         let b=4;
+         const c =4;
+         console.log(a); //10
+         console.log(b); //4
+         console.log(c); //4
+      }
+        console.log(a); //110
+        console.log(b); // reference error b is not defined because b is accessiable within that block
+        console.log(c); // reference error b is not defined because c is accessiable within that block
+
+- these variables **a & b** are hoisted and allocated memory in separate memory space that is **Block** but here for variable **c** memory is allocated in **Global object** that is why let & const are block scoped you can not access these values **outside the block** but here **c** value you can access outside the block because **c** value stored in global object
+
+### what is shadowing in JS?
+
+- suppose if u have same named variable outside the block so inside the block variable shadows the outside block variable
+- **example 1**
+-          var a = 100
+           {
+             var a = 10;
+             console.log(a); //10 here its shadows outside block variable a
+           }
+           console.log(a)//10 here it shadows and replace 100 with 10 because both are pointing to same memory space that is global object
+
+- **example 2**
+- even for **const** also same example you can replace **let** with **const** and check the below example
+-          let b = 10; //this b value stored in separate memory space which is in Script
+
+           {
+            let b = 5;//this b value stored in same memory space that is Block Scope
+            console.log(b); // 5 because this b value over here shadowing b value of 10 that is only called shadowing
+           }
+            console.log(b); // 10 because here it refers value from diffrent memory space and give the value
+
+- **example 3**
+- **even for function scope shadowing behaves in same way**
+-     const a =10;
+      function x() {
+         const a =100;
+         console.log(a);//100
+      }
+      console.log(a);//10
+
+### what is Illegal Shadowing in Js?
+
+**example 1**
+
+-      let a=10;
+       {
+        var a=100;// this is Illegal Shadowing you can not access let using var it will an error a already declared
+       }
+
+- why you will face this error because **a** value should not cross that block scope area but if you use **var** it will cross that border because **var** is **function scoped** see below example **this is perfectly valid** because now **a** is inside that boundary its not interfering with outside **a** value
+
+-      let a=10;
+       function x() {
+        var a=100;// this is Illegal Shadowing you can not access let using var it will an error a already declared
+       }
+- **block scope also follows lexicals scope and it follows that lexical scope chain pattern only**
+- **example**
+-              let a = 10;
+               {
+                 let a =100;
+                {
+                  let a = 1000;
+                  console.log(a);//1000
+                }
+                console.log(a);//100
+               }
+               console.log(a);//10
+- **whether you use function keyword or arrow function both are same whatever rules applied with function keyword same rules will be applied to arrow function**
