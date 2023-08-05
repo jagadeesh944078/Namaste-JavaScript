@@ -148,3 +148,4 @@
 
 - Javascript engine first looks for its variable or function inside the local memory of that function if not found it keeps on searching the lexical environment of its parent until it finds the variable or function being accessed this mechanism is called **Scope Chain**
 - if the variable accessed is not found in **Scope Chain** then you will get variable is not defind error in the browser consoel
+- The whole chain of lexical environment is known as **Scope Chain**
