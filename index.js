@@ -40,14 +40,19 @@
 //   console.log(x);
 // }
 
-function a() {
-  var x = 5;
-  console.log(b);
-  c();
-  function c() {
-    console.log(b);
-    console.log(x);
-  }
-}
-var b = 10;
-a();
+// function a() {
+//   var x = 5;
+//   console.log(b);
+//   c();
+//   function c() {
+//     console.log(b);
+//     console.log(x);
+//   }
+// }
+// var b = 10;
+// a();
+console.log("javascript");
+let a = 10;
+console.log(a);
+const b = 10;
+var c = 100;
