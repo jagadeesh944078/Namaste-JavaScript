@@ -50,9 +50,6 @@
 //   }
 // }
 // var b = 10;
-// a();
-console.log("javascript");
-let a = 10;
-console.log(a);
-const b = 10;
-var c = 100;
+// a();\
+
+const a = 100;

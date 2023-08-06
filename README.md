@@ -173,7 +173,7 @@
 
 ### what is the Temporal Dead Zone?
 
-- Temporal Dead Zone is the time since this let variable was hoisted and till it is initialized some value **that time between that is known as temporal Dead zone**
+- Temporal Dead Zone is the time since when this let variable was hoisted and till it is initialized some value **that time between that is known as temporal Dead zone**
 - in simple words we can say from hoisting till it is initialized with some value that phase is known as **Temporal Dead zone**
 
 ### what is the Reference Error?
