@@ -353,7 +353,7 @@
 - in Example 2 it froms a closure along with **b** which was its parent parent and along with **a** which was its parent that is known as closure
 - **Example 2**
 -        function z() {
-             var a=10;
+             var b=100;
              function x() {
                 var a =10
                  function y() {
