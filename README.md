@@ -326,3 +326,51 @@
                }
                console.log(a);//10
 - **whether you use function keyword or arrow function both are same whatever rules applied with function keyword same rules will be applied to arrow function**
+
+## Closure
+
+- closure basically a function bind together with its lexical environment
+- function along with its lexical scope forms a closure
+- **functions you can assign to variable and you can function as paramenter and even you can return the function also**
+- in below example you can see you are invoking the **x()** and when u invoke that function global execution context created and for **y()** also at code execution phase Execution context created and it return **y** value and vanishes once that exectuion finishes
+- now **z** contain this **y()** here we return **y()** outside the **x()** so no longer its inside the **x()** so now we can use **y()** outside the **x()**
+- suppose there are 1000 lines of code at some time we want to invoke **z()** it will try to findout **a** value here **a** is not there in global scope and **x** also not there its gone right
+- but here you will get output as **7** here **closure come into the picture** functions are so beautiful that when they are returned from another function still that function remember its lexical scope they remember where they were actually present though x function not present still y function remembers its lexical scope where it came from
+- when u return y not just that y function returned that closure was returned That's why when you execute the z function somewhere else it still remember **reference to **a** memory location(the label a or the identifier a)** not just a value and it tries to find out a which is 7 it print that 7 that's what closure is
+- that closure enclosed with function along with its lexical scope
+- **Example 1**
+-     function x() {
+           var a =10;
+          function y() {
+             console.log(a)
+          }
+          return y;
+        }
+        var z = x();
+        console.log(z) // it returns the function
+        z() // 10
+
+- in Example 2 it froms a closure along with **b** which was its parent parent and along with **a** which was its parent that is known as closure
+- **Example 2**
+-        function z() {
+             var a=10;
+             function x() {
+                var a =10
+                 function y() {
+                    console.log(a, b);
+                 }
+                 y();
+             }
+             x();
+         }
+         z();
+
+- Uses of Closures
+  - Module Design Pattern
+  - Currying
+  - Functions like once
+  - memoize
+  - maintaining state in async world
+  - setTimeouts
+  - Iterators
+  - and many more...

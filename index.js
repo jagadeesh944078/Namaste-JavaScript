@@ -50,6 +50,27 @@
 //   }
 // }
 // var b = 10;
-// a();\
+// a();
+/*Closure Example */
 
-const a = 100;
+// function z() {
+//   var b = 100;
+//   function x() {
+//     var a = 10;
+//     function y() {
+//       console.log(a, b);
+//     }
+//     y();
+//   }
+//   x();
+// }
+// z();
+
+function x() {
+  var a = 10;
+  function y() {
+    console.log(a);
+  }
+  return y;
+}
+x();
