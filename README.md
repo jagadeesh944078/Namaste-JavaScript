@@ -386,7 +386,7 @@
       }
       x();
 
-### Closure Interview Question
+### Closure Interview Questions
 
 - **what is closure?**
 - a function along with reference to its outer environment together from a closure so in otherwords we can say a closure is combination of its function and its lexical scope bundle together forms a closure
