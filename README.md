@@ -374,14 +374,56 @@
   - setTimeouts
   - Iterators
   - and many more...
-- this function forms the closure this function remember reference to i it forms a closure wherever it go it takes the reference of i along with it
-- setTimeOut takes this callback function and stores into someplace and it attaches the timer 3000 millisceconds to it and javascript proceeds it doesn't wait for anything it just go the nextline and print namasthe javascript and when the timer expires it takes that function puts it again into callstack and runs it
+
+### Settimeout And Closure Interview Questions
+
+- this function forms the closure. this function remember reference to i it forms a closure wherever it go it takes the reference of i along with it
+- **setTimeOut** takes this callback function and stores into someplace and it attaches the timer 3000 millisceconds to it and javascript proceeds **it doesn't wait for anything.** it just go the nextline and print namasthe javascript and when the timer expires it takes that function puts it again into callstack and runs it that's how **setTimeout** works
 
 -     function x() {
           var i =1;
           setTimeOut(function() {
              console.log(i);
           },3000);
+          console.log("Namasthe Javascript")
+      }
+      x();
+
+- **interviewer ask you to print 1 2 3 4 5 using this setTimeout?**
+- suppose here if you use **var i =1;** in for loop instead of **let i=1** then it print the **6 6 6 6 6** 5times because each time it takes this callback function and stores into someplace and attach timer and it remember reference to i not just i value.
+- so when loop run 1st time it takes callback function and attach timer similarly this 5 copies of function all of them refering to same memory location that is reference of i.
+- because environment of all of this functions are same
+- 2nd thing javascript does not wait for anything it stores all these 5 functions and move on so it will print namasthe javascript.and when the timer expires its too late and value of i becomes loop was constantly running right it is 6. and when the callback function runs on that time the value of will be 6
+
+-     function x() {
+          var i =1;
+          for(let i=1; i<=5; i++>){
+            setTimeOut(function() {
+             console.log(i);
+            }, i*1000);
+          }
+          console.log("Namasthe Javascript")
+      }
+      x();
+
+- easy way to fix this is use **let in for loop** because **let has block scope** that means whenever each time loop runs this **i** is a new copy of all together
+- and eachtime setTimeout runs this callback function has new copy of **i** with it
+- here it makes 5 copies of **i** variable with it and they form closure with each and every function
+- in simple words each time this function calls this **i** refers to diffrent memory location each time
+
+- **suppose if interviewer ask u to resolve problem using var keyword only?**
+- yes we can this using closure. here every time you call this close function with **i** it creates the new copy of **i** with it
+
+-     function x() {
+          var i =1;
+          for(let i=1; i<=5; i++>){
+            function close(x) {
+              setTimeOut(function() {
+              console.log(x);
+              }, x*1000);
+            }
+             close(i);
+          }
           console.log("Namasthe Javascript")
       }
       x();
