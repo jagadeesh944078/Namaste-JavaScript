@@ -101,14 +101,24 @@
 
 // counter();
 
+// function x() {
+//   for (var i = 1; i <= 5; i++) {
+//     function close(x) {
+//       setTimeout(function () {
+//         console.log(x);
+//       }, x * 1000);
+//     }
+//     close(i);
+//   }
+// }
+// x();
+
 function x() {
-  for (var i = 1; i <= 5; i++) {
-    function close(x) {
-      setTimeout(function () {
-        console.log(x);
-      }, x * 1000);
-    }
-    close(i);
+  var a = 0,
+    b = 2;
+  function y() {
+    console.log(a);
   }
+  y();
 }
-x();
+var aa = x();

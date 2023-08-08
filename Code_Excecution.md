@@ -20,13 +20,13 @@
 
 - **whenever u see function name with parentheses it means that function is now being executed**
 
-# don't u think that this is all too much to manage for javascript engine?
+### don't u think that this is all too much to manage for javascript engine?
 
 - suppose there is function invocation inside function you would have created execution context inside an exectuion context and maybe again another invocation it can go to any deep level right?
 - function invocation inside again function invocation and all these things so its is very difficult for js engine to manage and it does it very beautifully
 - it handles everything to manage this exectuion context creation and deletion and the control it manages the stack it's known as **callstack**
 - this is beautiful thing in javascript **it has its own call stack**
 
-# what Is a Call Stack & How Call Stack Works?
+### what Is a Call Stack & How Call Stack Works?
 
 - **<a href="/Call_Stack.md">CallStack Brief Info</a>**
