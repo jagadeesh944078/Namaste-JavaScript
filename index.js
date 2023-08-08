@@ -66,11 +66,37 @@
 // }
 // z();
 
-function x() {
-  var a = 10;
-  function y() {
-    console.log(a);
-  }
-  return y;
+// function x() {
+//   var a = 10;
+//   function y() {
+//     console.log(a);
+//   }
+//   return y;
+// }
+// x();
+
+// function x() {
+//   var a = 10;
+//   setTimeout(function () {
+//     console.log(a);
+//   }, 2000);
+//   console.log(a);
+// }
+// x();
+
+/* Data Hiding */
+var count = 0;
+function incrementCounter() {
+  count++; // u can access inside the function also
 }
-x();
+
+function counter() {
+  var count = 0;
+  function incrementCounter() {
+    count++;
+    console.log(count); // u can access inside the function also
+  }
+  incrementCounter();
+}
+
+counter();
