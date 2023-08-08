@@ -85,18 +85,18 @@
 // x();
 
 /* Data Hiding */
-var count = 0;
-function incrementCounter() {
-  count++; // u can access inside the function also
-}
+// var count = 0;
+// function incrementCounter() {
+//   count++; // u can access inside the function also
+// }
 
-function counter() {
-  var count = 0;
-  function incrementCounter() {
-    count++;
-    console.log(count); // u can access inside the function also
-  }
-  incrementCounter();
-}
+// function counter() {
+//   var count = 0;
+//   function incrementCounter() {
+//     count++;
+//     console.log(count); // u can access inside the function also
+//   }
+//   incrementCounter();
+// }
 
-counter();
+// counter();
