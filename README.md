@@ -414,11 +414,11 @@
 -          var close = outer();
            close();
 - but both are same
-- **suppose if i change the variable declaration before return statement will if from a closure?**
+- **suppose if i change the variable declaration before return statement will it from a closure?**
 - no no it will still form a closure and it will work the same way. actually this inner function forms the closure with its lexical enivornment of parent. so its not in particular sequence where it is actually present in the code. it still form the closure
 - **what if i change let a =10; instead of var a =10;?**
 - if we make this as let so this a variable has block scope we can't this **let a** outside the block but still it behaves in same way so this inner function forms the closure even its let variable and its work in same way
-- **suppose if u pass any parameter in outside funtion still will it form a closure?**
+- **suppose if u pass any parameter in outer funtion still will it form a closure?**
 -      function outer(b) {
          var a =10;
         function inner(){
