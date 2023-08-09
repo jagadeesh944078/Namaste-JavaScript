@@ -122,9 +122,17 @@
 //   y();
 // }
 // var aa = x();
-const i = 10;
-{
-  let i = 100;
-  console.log(i);
-}
-console.log(i);
+
+// setTimeout(function () {
+//   console.log("timer");
+// }, 5000);
+// function x(y) {
+//   console.log("x");
+// }
+// x(function y() {
+//   console.log("y");
+// });
+
+document.getElementById("clickMe").addEventListener("click", function xyz() {
+  console.log("xyz");
+});
