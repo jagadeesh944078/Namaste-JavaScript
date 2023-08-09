@@ -113,12 +113,18 @@
 // }
 // x();
 
-function x() {
-  var a = 0,
-    b = 2;
-  function y() {
-    console.log(a);
-  }
-  y();
+// function x() {
+//   var a = 0,
+//     b = 2;
+//   function y() {
+//     console.log(a);
+//   }
+//   y();
+// }
+// var aa = x();
+const i = 10;
+{
+  let i = 100;
+  console.log(i);
 }
-var aa = x();
+console.log(i);

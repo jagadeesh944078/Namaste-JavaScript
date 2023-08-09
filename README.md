@@ -434,3 +434,98 @@
 - a function along with reference to its outer environment together from a closure so in otherwords we can say a closure is combination of its function and its lexical scope bundle together forms a closure
 
 for more questions go through this **<a href="/closure_interview.md">Closure Interview Questions</a>**
+
+### First Class Functions
+
+- Functions are very beautiful in javascript and functions are heart of javascript
+
+- **Function Statement also Known as Function Declaration**
+- if you give function keyword and function name this is known as function statement. This way of creating known as **function statement**
+- **Example**
+-      function a() {
+          console.log("a called");
+       }
+       a();
+
+- **Function Expression**
+- A beautiful feature of function is you can assign it to the variable also. function acts like a value.this is known also **function expression**
+- **Example**
+-      var b = function () {
+            console.log("b called");
+       }
+       b();
+
+- **Diffrence between Function Statment and Function Expression is Hoisting** because see above 2 programs when u try to invoke first one before its initialized **a()** then u will get output because at memory creation phase for a that complete function copied and pasted over there
+- but in the second program its diffrennt here if u try to invoke **b()** before its initialized then it gives **b is not a function** because at memory creation **b** treated as variable stored as **undefined** in memory creation phase not function so until that line will be executed you can't invoke that function
+
+- **Anonymous Function**
+- function without name is known as Anonymous Function. Anonymous Function Does not have their own identity. these means if u create Anonymous function like below program it gives the syntax error.
+- **Example**
+-       function() {
+
+        }
+
+- why Syntax Error Anonymous Function looks like Function Statement only but it has no name according to **EcmaScript specification** function statement always should have name so that example program is invali syntax you can run and check
+- it clearly gives **SyntaxError: Function statements require a function name**
+- Anonymous Function are used when the Anonymous Functions are used as the values. that means just like you assign values to variable. you can assign this anonymous function to some variable. so it acts like a variable.
+- but in Function Statement you can not use Anonymous Functions that is why Syantax Error
+
+- **Named Function Expression**
+- Named Function Expression Exactly Same as Function Expression only but instead of Assigning Anonymous Function we Assign Named Function to the Variable
+- giving name for variable and for function also but this is possible in javascript
+- you can have the name of the function itself and put it into the expression so this is known as **Named Function Expression**
+- **Example**
+-      var b = function xyz() {
+             console.log(xyz)//u can access over here
+             console.log("xyz called")
+       }
+       b();
+       xyz(); //you can not call like this you will get error Refrence Error xyz is not defined
+- why xyz is error because here you assigned function to the var b it won't create memory in outer scope but it created as local variable means you can access xyz() function inside that function. this is what called named function expression
+
+- **Diffrence Between Parameters an Arguments?**
+- the values which you pass inside th function known as Arguments
+- these identifiers here param1 & param2 which gets those values are known as Parameters
+- **Example**
+-        var b = function(param1, param2) {
+           // here param1 & param2 are called parameters you can access these within that function only
+         }
+         b(1,2)// this 1,2 are arguments.
+
+- **First Class Functions**
+- The ability of functions to be used as the values and assgined to the variable and can be passed as argument into another function and can be returned from another functions this ability all together known as First Class Functions
+
+- insted of passing arguments we can pass functions inside the another function as an argument
+- **Example 1**
+-       var b = function(param1) {
+             console.log(param1);
+         }
+         b(function () {
+
+         }); // here Anonymous function to be passed as an value also
+
+- **Example 2**
+-       var b = function(param1) {
+             console.log(param1);
+         }
+
+         function xyz() {
+
+         }
+
+         b(xyz);
+
+- **Example 3**
+-       var b = function(param1) {
+             return function () {
+
+             }
+         }
+         console.log(b());
+
+- Function are First Class Citizens means as same as First Class Functions both meaning is same
+- even if you use **let & const** also it behaves in same way
+
+- **Arrow Functions**
+- These Funtion Expresesion, Function Declaration, Function statment these all things can be returned from Arrow Functions Also
+- Arrow Functions Are Introduced in Es6
