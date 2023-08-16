@@ -133,6 +133,10 @@
 //   console.log("y");
 // });
 
-document.getElementById("clickMe").addEventListener("click", function xyz() {
-  console.log("xyz");
-});
+function attachEventListner() {
+  var count = 0;
+  document.getElementById("clickMe").addEventListener("click", function xyz() {
+    console.log("xyz", ++count);
+  });
+}
+attachEventListner();

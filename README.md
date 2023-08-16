@@ -593,3 +593,112 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - in this case we can not free up the memory that is why eventlistners are heavy that is reason why we remove evenlistners when we are not using them
 - suppose in our page has 1000 of the buttons and 1000 of eventlistners attached to it.onclick onmouseover etc..then our page can go lot of slow because of lot of eventlistners. because so many closures sitting into the memory.consuming lot of memory of their scope. these callback functions hold on that scope. good practise is generally to free up.
 - suppose if you remove this eventlistner then all this variables which were held by closure will be garbage collected
+
+### Event Loop
+
+- as you know javascript synchronous single threaded language only one thing execute at one time in call stack and this call stack present in javascript engine and all code in the javascript execute inside the callstack
+- and anything comes inside callstack executly quickly it doesnot wait for anything
+- **what if we need to run any script after 5 seconds?**
+- no we cannot do that.because whatever comes inside callstack it execute immediatly.it you give it script execute it after 5 seconds it cannot because callstack doesnot have timer
+- suppose if we have to keep track of the time and we have to execute code after some delay we will need some extra super powers of timer.
+- let us see we will get that super power
+
+- if u see diagram call stack is inside javascript engine and javascript engine is inside the browser
+- so this browser overall this JS engine in it and Js engine has call stack and inside that program runs
+- it also has something known as local storage in it.it can store some data inside it r8?
+- you can have timer inside the browser and you also have URL where you write netflix or anything watch your own thing
+- this browser has super power of communicating to the external world like netflix server.
+- suppose if we have netflix servers if you want to fetch good tv series so this browser can make connection with the server and get the data over there
+- even after getting data it displayed in the UI and it also has super of power access ex:bluetooth,geolocation.. etc..
+  -if we need access to these super powers.suppose we need to access **timer** or **local storage** or **bluetooth** etc..whatever we need to have that kind of connection
+- this js engine need some way to access these super power right.let us see how we can do it
+
+### Web Apis
+
+- to access all these super powers we need **web apis**
+- setTimeOut() is not part of javascript and even dom apis document.elementByid whatever you do with document is not part of javascript and locastorage and fetch also
+- even console.log() also not part of javascript
+- these are the kind of super powers which browser have it. these are the part of the browser.
+- and browser give us access to super powser inside JS engine.
+- suppose if we have to use timer super power.browser gives access to setTimeOut and if we have to use DOM tree browser gives access to DOM Apis
+- fetch gives access to make connection with other servers like external server.
+- **we get it all inside the callstack using global object that is window**
+- browser gives super power to javascript engine through the keyword called window
+- suppose we if want super power of timer inside javascript engine then you have to do something like window.setTimeOut, for localstorage something known window.setTimeout that is how you get access to all these super powers.
+- but when we write code we wont write window.setTimeOut(). because window is the global object and setTimeout present in this global scope so you can access setTimeOut without window keyword.
+- so if you do window.setTimeOut() or only setTimeOut() its one in the same thing.
+- so this browser wraps of all super powers into global object.and gives access of window to this callstack and now you can acces super powers
+
+- **let us move on to examples**
+- **Example 1 And Diagram 1**
+-          console.log("start");
+           setTimeOut(function cb() {
+           console.log("callback")
+           }, 5000);
+           console.log("end");
+
+- here basically console.log is the web api and logs something inside the browser console.and this console web api pluged through window to the javascript code
+- and in the next line setTimeOut basically go and call setTimeOut web api this gives access to the time feature and it takes callback function and some delay
+- so when u pass callback function to setTimeOut it basically register callback because we pass time it starts counting time inside the timer and move to next line and print **end**
+- after completing execution **GEC** pops out of the callstack.and as soon as timer expires this call back needs to executed.
+- because we know all this javascript code executed inside the callstack. we somehow need this callback function inside the callstack
+- **now eventloop and callback Queue comes into picture**
+- as soon as the timer expires this callback function needs to executed in callstack but it wont be execute directly. it will be executed through callback Queue
+- so as soon as the timer expires this callback function pushed into the callback Queue and Event loop checks is something is there in callback Queue and its find that callback function and puts inside the callstack and this callstack quickly execute the callback function.
+- how its executed is same like it create memory first and code execution same as previous executions
+- event loop works like gate keeper it always verfies callback quere if something is present it puts inside the callstack
+
+- **Example 2 And Diagram 2**
+
+-      console.log("start");
+       document.getElementById("btn").addEventListner("click", funcion cb(){
+        console.log("clicked")
+      })
+      console.log("end");
+
+- everything here is same as above example only writing setps which are diffrent than example 1
+- addEventListner its a super power given by the browser to the javascript engine through window object in the form of web apis which DOM apis
+- so whenever you do document.something it basically call DOM apis.so it basically fetches something from the DOM.DOM is document object model its like html source code
+- whenever you access DOM apis it gives something from html source code based on id or something like that
+- here **addEventListner** register callback on an event click.inside webapis environment this callback registered and event attached to it its click event
+- this event will be there until and unless we close the browser or remove the eventlistner
+- so once user click on the button this callback function pushed inside the callback queue and wait for execution here **Event loop is super hero** Event Loop keeps on monitoring this call stack and callback queue. suppose if callstack is empty and Event loop check whether anything pending to execute in callback queue if anything is there then it push that into callstack and executing call stack and callback queue will become empty
+
+- **why do we need callback queue?**
+- suppose user clicks on the button 7 times.in that case callback function pushed into the callback queue 7 times waiting to be executed inside the callback queue.
+
+- here event loop continously checks whether call stack is empty or not. if its is empty there are some functiones lined up in callback queue so it takes that callback function and pushed inside the callstack and it executes and slowly slowly its pops off from callback queue and slowly slowly it executes all callback functions one by one
+- so generally in real life applications we often see that lot of eventlisteners and lot of timer and other things happens inside browser right that is why we need to queue all of this callback functions together so that they get chance one after other because javascript just has this one callstack and everything execute here only. thats how whole thing works
+
+**fetch example**
+
+-      console.log("start");
+       setTimeout(function cbT(){
+          console.log("call back");
+       },5000);
+       fetch("https://api.netflix.com").then(
+        function cbF() {
+          console.log("cb netflix");
+        });
+        console.log("end");
+
+- fetch basically goes and request api call this fetch returns the promise.and we have to pass the callback function which will be executed once promise is resolved.
+- when we get data from server basically this callback function executed.
+- **everything same as above example only few things are diffrent**
+- here **cbt** and **cbf** are registered inside the web api cbt waiting for time to expire and cbf waiting for data to return from the server
+- this fetch() will basically makes call to the netflix server and this server return data back to fetch.so once receive data from server this **cbf** ready to be executed.
+- suppose if netflix servers are too fast and we receive data withing 50ms then cbf will be ready to executed once receive the data.
+- just like this **callback queue** we also have something known as **microtask queue** its same callback queue but this is having higher priority.whatever function comes in this microtask queue executes first.and in callback queue executed second
+- **what comes inside microtask queue?**
+- all callback functions which comes through **promises** will go inside the microtask quere.there is alos something known as **mututation observer**(it will check basically keeps on checking whether there is any mutuatation in DOM tree or not if its there it executes)
+- here cbf will go to microtask queue. incase of network calls will go to microtask queue.here job of event loop is keeps on checking callstack once call stack is empty it gives chance to these queues to execute
+- suppose there 1000 million lines code in program so it takes some time to execute right but here already CBF waiting in microtask queue for executing but we are running million lines of code in our main thread.meanwhile we are running these million lines of code that timer also expired.so here browser is not doing one thing at a time its doing all of things behind the scenes. here javascript engine which is doing one thing at a time.
+- so once 5000ms expires this is ready to be executed. CBT will go into callback queue now both CBF and CBT are waiting for executing but still million lines of code executed.
+- here event loop continously check whether call stack is empty or not. if it is empty schedule this task. suppose million lines of code completed executing. and there is nothing to be executed. GEC will be deleted from call stack.
+- here eventloop continously verify the callstack once call stack is empty.it will see there are some tasks pending in callstack queue and microtask queue. since microtask queue has higher priority first it will execute those tasks there it will pops off from microtask queue and call stack then it will execute callback queue task once its also done removed fromm callback queue and call stack
+
+- **callback queue also known as Task queue**
+
+- **what is Starvation in Js**
+- suppose there is a task in microtask queue while executing this task its creating one more microtask like its creating so here the task which is present in callback queue will never get chance to execute.
+- there are chances like task which is in callback queue does not get chance to execute for long time this is known starvation
