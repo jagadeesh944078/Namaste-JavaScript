@@ -728,6 +728,8 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 
 ### Javascript Engine Architecture
 
+![Alt text](JS_ENGINE.jpg)
+
 - JS engine is not a machine.its just like normal code which is written in low level langugage.suppose v8 engine which is written in c++.its is like piece of code which is written by engineer like you and me.
 - that piece of code which is JS engine takes the code which is high level code what we write inside javascript and kind of splits out machine level code which can be executed by machine
 - JS engine takes Human Readable code as input. now this code now goes to 3 major steps
