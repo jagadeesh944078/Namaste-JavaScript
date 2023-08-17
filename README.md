@@ -709,6 +709,8 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 
 **javascript runtime environment?**
 
+![Alt text](JS_Runtime_Environment.jpg)
+
 - its like big container which has all things required to run the javascript code
 - to run anypiece of javascript code you definetly need JS engine and it also have set of apis to connect to outer environment & we have event loop & callback queue & microtask queue and we can have lot of things inside javascript runtime environment
 - javascript runtime environment is not possible without javascript engine so basically JS engine is heart of javascript runtime environment
