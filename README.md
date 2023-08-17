@@ -702,3 +702,66 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - **what is Starvation in Js**
 - suppose there is a task in microtask queue while executing this task its creating one more microtask like its creating so here the task which is present in callback queue will never get chance to execute.
 - there are chances like task which is in callback queue does not get chance to execute for long time this is known starvation
+
+### Js Engine Exposed
+
+- javascript can run in browser & it can run inside server & inside watch & inside robot all these possible because of javascript runtime environment
+
+**javascript runtime environment?**
+
+- its like big container which has all things required to run the javascript code
+- to run anypiece of javascript code you definetly need JS engine and it also have set of apis to connect to outer environment & we have event loop & callback queue & microtask queue and we can have lot of things inside javascript runtime environment
+- javascript runtime environment is not possible without javascript engine so basically JS engine is heart of javascript runtime environment
+- Browser can execute your javascript code because browser has javascript runtime environment
+- if you nodejs also has javascript runtime environment and nodejs can run code outside the browser.suppose if you need to run JS code in cooler you need JS runtime environment
+- JS can run in lot of devices because of this javascript enviroment
+- and these API's diffrent in browser environment maybe diffrent in nodejs environment
+- example: suppose in Browser we have local storage api which we use for accessing browser storage and in case of nodejs javascript runtime environment maybe diffrent. here there are common webapis names also for node and browser environment which is console.log() and setTimeout(). but maybe internally implemented diffrently.
+- there are lot of javascript engines available each browser has diffrent javascript engine
+- example: Microsoftedge has diffrent Jsengine that is **chakra** and mozilla has **SpiderMonkey** and similarly chrome has JSenigne which is **v8engine**
+- these engines should follow ECMASCRIPT Standards
+- **google about ecamscript and read about it**
+- **what was the first javascript engine developed?**
+- first javascript engine created by javascript creator himself. his name is Brendan Eich.he developed when he was working in netscape.that engine evolved alot and now it is **spidermonkey** which is using in MozillaFirefox
+
+### Javascript Engine Architecture
+
+- JS engine is not a machine.its just like normal code which is written in low level langugage.suppose v8 engine which is written in c++.its is like piece of code which is written by engineer like you and me.
+- that piece of code which is JS engine takes the code which is high level code what we write inside javascript and kind of splits out machine level code which can be executed by machine
+- JS engine takes Human Readable code as input. now this code now goes to 3 major steps
+
+1. parsing
+2. compilation
+3. execution
+
+- **parsing**
+- during **parsing phase** code broken down into tokens.suppose you have written let a =7; then let divied like one token & a one token like that
+- there is also something known as Syntax Parser.basically it takes code and convert into AST(Abstract Syntax Tree). so just type **const bestCourse = "javascript course"** in the link https://astexplorer.net/
+  and see. it kind of genearate tree kind of structure.
+- this is AST generated after the parsing level then passed into the **compilation stage**
+
+- **compilation**
+- Javascript has something known as JIT(just in time) compilation.
+- **is Javascript interpreted language or compiler language?**
+- many programming languages used interpretter for executing the code.so it takes code and execute line by line it doesnot know what will happen in nextline.that's how it will be executed.here code executed very fast
+- other hand many language uses compiler to compiling the code.here first code will be compilied and code is compiled and new code is formed which optimized version of this code.then it executed.here code has more efficiency
+- JS can behave like compiled language as well as interpreted language. everything is depended on JS engine
+- when Brendan Eich created JS it used to interpreted language.it used to be run in browser. so browser can't wait for compilation before running or executing the code.
+- but in todays world most of the moderen browsers uses an interpreter and compiler both together.so now its is purely depended on JS engine. whether its is purely interpreted or JIT compiler
+- JS engine uses interpretter along with the compiler and that makes it JIT compilation.it used interpretter and compiler both for executing the code
+- so now AST will go to the interpretter and it will convert high level code into byte code and that code moves to the execution code.while its doing so it takes the help of compiler to optimize the code.
+- compiler bascially talks to the interpretter while code being interpretted line by line.here compiler also tries to optimize code as much as it can on the runtime that is why its known JIT compilation.it can happen in multiple phases
+- there is something known as AOT(AHead of Time) compilation.in that case compiler takes the piece of code
+  which is going to be executed later and try to optimize the code as much as it can.and it also produces byte code which is then goes to execution phase
+- execution phase not possible without these 2 components which are Memory Heap and callstack
+- Memory Heap this is place where all memory stored.its constantly sink with callstack and garbage collector and etc..
+- Memory Heap is the space where all memory is assigned to variables and functions.
+- Garbage Collector tries to free up memory whenever its possible.suppose whenever function not being used and we cleared timeout. so it basically collect that garbage and sweeps it.it used algoritam which is **mark & sweep** algoritham
+- **study mark & sweep**
+- this Mark & Sweep algoritham is very important and widely used across the garbage collector out there not just for javascript only.
+- compilation uses other types of optimization those **Inlining, Copy Elision,Inline Caching(try to read more)** while compiling the code.
+- all the Js engines has there own way of implementing things but most of browsers having similar to this.
+- maybe compilation logic in v8 engine diffrent then spider monkey which is inside the firefox.
+- Google V8 has considred has the fastest Js engine right now.
+- V8 has the interpretter which is known as Ignition along with that Turbo fan optimized compiler.so this compiler does compilation very fast.they both make your code run very fast.
+- they also has Garbage Collectore which is Orinoco it used Mark & Sweep Alogoritham
