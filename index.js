@@ -133,10 +133,23 @@
 //   console.log("y");
 // });
 
-function attachEventListner() {
-  var count = 0;
-  document.getElementById("clickMe").addEventListener("click", function xyz() {
-    console.log("xyz", ++count);
-  });
+// function attachEventListner() {
+//   var count = 0;
+//   document.getElementById("clickMe").addEventListener("click", function xyz() {
+//     console.log("xyz", ++count);
+//   });
+// }
+// attachEventListner();
+
+console.log("start");
+setTimeout(function cb() {
+  console.log("callback called");
+}, 5000);
+console.log("end");
+let startDate = new Date().getTime();
+let endDate = startDate;
+while (endDate < startDate + 10000) {
+  endDate = new Date().getTime();
 }
-attachEventListner();
+
+console.log("while expires");

@@ -769,3 +769,56 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - Google V8 has considred has the fastest Js engine right now.
 - V8 has the interpretter which is known as Ignition along with that Turbo fan optimized compiler.so this compiler does compilation very fast.they both make your code run very fast.
 - they also has Garbage Collectore which is Orinoco it used Mark & Sweep Alogoritham
+
+### TRUST ISSUES with setTimeOut()
+
+- yes setTimeOut() has trust issues. setTimeOut with delay of 5000ms does not exactly always wait exactly 5000ms
+- setTimeOut() does not give gurantee like callback function will be called exactly after 5000ms.it might taken even 6sec or even 10 sec.it all depends on callstack
+- **Example 1**
+-      console.log("start");
+       setTimeOut(function cb() {
+          console.log("callback called")
+       }, 5000);
+
+       console.log("end");
+
+- when you execute this piece of code first GEC created and pushed inside the callstack. now code will be run line by line. start will be printed in console. next setTimeOut will register this callback function inside webapis environment and starts the timer of 5000ms.
+- suppose now we have 10 millions code it will take 10 mints to execute.so GEC wont go out before 10sec it will wait for 10sec and execute the all code.
+- but here timer has expired for callback function pushed inside the callback queue waiting for execution.eventloop constantly checking callstack whether its empty or not. only when its empty then only you can execute this callback function which is waiting in callback queue
+- though setTimeout was 5000ms here.until GEC move out of call stack we can't execute the callback function so it will execute after 10 secs this is what also known **concurrency model** in javascript
+- that is why setTimeOut() has trust issues.
+- that is why we say doesnot block the main thread because if callstack doesn't make empty it won't process any other events
+- here setTimeOut() will give gurantee like atleast wait for 5000ms but it doesnot gurantee like after 5000ms only it will be executed.
+- it does not happen generally while you are writting the code but you should have idea on this concurreny model
+
+- **Example 2**
+-      console.log("start");
+       setTimeOut(function cb() {
+          console.log("callback called")
+       }, 5000);
+
+       console.log("end");
+       let startDate = new Date().getTime();
+       let endDate = startDate;
+       while(endDate < startDate + 10000) {
+          endDate = new Date().getTime();
+       }
+       console.log("while expired");
+
+- **why does javascript has only one callstack?**
+- javascript is synchronous single threaded language.that's what beauty of javascript.it has just one main thread(Call stack).all piece of code executed there itself.thats what make javascript kind of interpreted language.and it runs very fast even inside the browser.you dont have wait for javascript to compile r8 just like other languages r8. it has its own pros and cons.there are ways we can do asynchrnous operations in javascript as well.
+- to be honest these type of scenearios does not very often you see in your code.
+- as a developer you should understand we should not block our main thread.
+
+- **Example 3**
+-      console.log("start");
+       setTimeOut(function cb() {
+          console.log("callback called")
+       }, 0);
+
+       console.log("end");
+
+- even here **0secs** function has to go through that queue.so it will register the callback function into webapi enviornment and javascript doesnot wait for anything it will be log end.then though the timer expired longback it will move into callback queue wait for execution.once GEC out of the callstack then callback function will get change to execute the code.
+- there maybe some usecases to write setTimeOut() something like above example
+- example if you want to give less priority to cb function later you want to execute that code after entire code has been executed you can use setTimeOut like this.
+- just because of **concurreny model** in javascript all these possible
