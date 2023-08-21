@@ -141,15 +141,49 @@
 // }
 // attachEventListner();
 
-console.log("start");
-setTimeout(function cb() {
-  console.log("callback called");
-}, 5000);
-console.log("end");
-let startDate = new Date().getTime();
-let endDate = startDate;
-while (endDate < startDate + 10000) {
-  endDate = new Date().getTime();
+// console.log("start");
+// setTimeout(function cb() {
+//   console.log("callback called");
+// }, 5000);
+// console.log("end");
+// let startDate = new Date().getTime();
+// let endDate = startDate;
+// while (endDate < startDate + 10000) {
+//   endDate = new Date().getTime();
+// }
+
+// console.log("while expires");
+
+const radius = [4, 3, 1, 2];
+
+function area(radius) {
+  return Math.PI * radius * radius;
+}
+function circumference(radius) {
+  return 2 * Math.PI * radius;
+}
+function diameter(radius) {
+  return 2 * radius;
 }
 
-console.log("while expires");
+function calculate(radius, area) {
+  const outPut = [];
+  for (let i = 0; i < radius.length; i++) {
+    outPut.push(area(radius[i]));
+  }
+  return outPut;
+}
+console.log(radius.map(area));
+console.log(calculate(radius, area));
+
+const radius1 = [3, 4, 2, 1];
+
+Array.prototype.calculate = function (logic) {
+  const outPut = [];
+  for (let i = 0; i < this.length; i++) {
+    outPut.push(logic(this[i]));
+  }
+  return outPut;
+};
+console.log(radius.calculate(area), "jag");
+console.log(radius.map(area), "af");
