@@ -154,36 +154,119 @@
 
 // console.log("while expires");
 
-const radius = [4, 3, 1, 2];
+// const radius = [4, 3, 1, 2];
 
-function area(radius) {
-  return Math.PI * radius * radius;
-}
-function circumference(radius) {
-  return 2 * Math.PI * radius;
-}
-function diameter(radius) {
-  return 2 * radius;
-}
+// function area(radius) {
+//   return Math.PI * radius * radius;
+// }
+// function circumference(radius) {
+//   return 2 * Math.PI * radius;
+// }
+// function diameter(radius) {
+//   return 2 * radius;
+// }
 
-function calculate(radius, area) {
-  const outPut = [];
-  for (let i = 0; i < radius.length; i++) {
-    outPut.push(area(radius[i]));
+// function calculate(radius, area) {
+//   const outPut = [];
+//   for (let i = 0; i < radius.length; i++) {
+//     outPut.push(area(radius[i]));
+//   }
+//   return outPut;
+// }
+// console.log(radius.map(area));
+// console.log(calculate(radius, area));
+
+// const radius1 = [3, 4, 2, 1];
+
+// Array.prototype.calculate = function (logic) {
+//   const outPut = [];
+//   for (let i = 0; i < this.length; i++) {
+//     outPut.push(logic(this[i]));
+//   }
+//   return outPut;
+// };
+// console.log(radius.calculate(area), "jag");
+// console.log(radius.map(area), "af");
+
+/* Reduce function examples */
+
+const arr = [6, 2, 3, 1, 4];
+
+function findSum(arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
   }
-  return outPut;
+  return sum;
 }
-console.log(radius.map(area));
-console.log(calculate(radius, area));
 
-const radius1 = [3, 4, 2, 1];
+console.log(findSum(arr));
 
-Array.prototype.calculate = function (logic) {
-  const outPut = [];
-  for (let i = 0; i < this.length; i++) {
-    outPut.push(logic(this[i]));
+const output1 = arr.reduce(function (acc, curr) {
+  acc = acc + curr;
+  return acc;
+}, 0);
+
+console.log(output1);
+
+function findMax(arr) {
+  let max = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > max) {
+      max = arr[i];
+    }
+    return max;
   }
-  return outPut;
-};
-console.log(radius.calculate(area), "jag");
-console.log(radius.map(area), "af");
+}
+
+console.log(findMax(arr));
+
+const output2 = arr.reduce(function (max, curr) {
+  if (curr > max) {
+    max = curr;
+  }
+  return max;
+}, 0);
+
+console.log(output2);
+
+const users = [
+  { firstName: "Akshay", lastName: "Saini", age: 26 },
+  { firstName: "Donald", lastName: "Trump", age: 75 },
+  { firstName: "Elon", lastName: "Must", age: 50 },
+  { firstName: "Deepika", lastName: "Padukone", age: 26 },
+];
+
+//output = ["Akshay","Deepika"];
+
+const output3 = users.reduce((arr, curr) => {
+  if (curr.age < 30) {
+    arr.push(curr.firstName);
+  }
+  return arr;
+}, []);
+
+console.log(output3);
+
+const output4 = users.filter((x) => x.age < 30).map((x) => x.firstName);
+
+console.log(output4);
+
+//output ["Akshay Saini", "Donald Trump", "Elon Must", "Deepika Padukone"];
+
+const output5 = users.map((x) => x.firstName + " " + x.lastName);
+
+console.log(output5);
+
+//output {26:2, 75:1, 50:1}
+
+const output6 = users.reduce((acc, curr) => {
+  if (acc[curr.age]) {
+    acc[curr.age] = ++acc[curr.age];
+  } else {
+    acc[curr.age] = 1;
+  }
+  return acc;
+}, {});
+
+console.log(output6);

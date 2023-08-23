@@ -769,3 +769,86 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 ### Higher-Order Functional Programming
 
 - a function which takes another function as input(argument) to itself or return a function from itself is known as **<a href="/higher_order_function.md">higher-order function</a>**
+
+### map(), filter(), reduce()
+
+- **map(), filter(), reduce() are the higher-order functions**
+
+- **map()**
+- map function basically used to transform an array.for example
+- if you want to transform an array you can do with map function
+
+- **map examples**
+-       const arr = [3,4,5,6];
+
+        // same shortcuts are applicable for binary function as well
+
+        function binary(x) {
+            return x.toString(2);
+        }
+
+        function double(x) {
+            return x * x;
+        }
+        const output = arr.map(double);
+
+        (OR)
+
+        const output = arr.map(function double(x) {
+          return x * x;
+        })
+
+        (OR)
+
+        const output = arr.map((x) => {
+          return x * X;
+        })
+
+        (OR)
+
+        const output = arr.map((x) => x * x);
+
+- its like mapping each and every value to another value and creating an array and returned new array to output using map function
+- here iam passing function into the another function so here map is the higher order function. which i passed inside map function is callback function
+
+- **filter()**
+- filter function basically used to filter the values inside an array
+- suppose we want to filter out odd number from an array or grethar then 4 or even number in this cases you can filter function
+
+- **filter examples**
+
+-        const arr = [3,4,2,5,6];
+         function isOdd(x) {
+          return x % 2;
+         }
+         function isEven(x) {
+          return x % 2 === 0;
+         }
+         const output = arr.filter(isOdd);
+         const output = arr.filter(isEven);
+
+         function greaterThan4(x) {
+            return x > 4;
+         }
+
+         const output = arr.filter(greaterThan4);
+
+         (OR)
+
+         const output = arr.filter(function greaterThan(x) {
+          return x>4;
+         });
+
+         (OR)
+
+         const output = arr.filter((x) => {
+          return x>4;
+         });
+
+         (OR)
+
+         const output = arr.filter((x) => x >4);
+
+- **reduce()**
+- reduce function basically used at a place where you have to take element of an array and come up with single value out of them
+- to find the sum or max number inside the array you can use reduce function
