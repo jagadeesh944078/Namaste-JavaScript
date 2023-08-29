@@ -200,14 +200,14 @@ function findSum(arr) {
   return sum;
 }
 
-console.log(findSum(arr));
+// console.log(findSum(arr));
 
 const output1 = arr.reduce(function (acc, curr) {
   acc = acc + curr;
   return acc;
 }, 0);
 
-console.log(output1);
+// console.log(output1);
 
 function findMax(arr) {
   let max = 0;
@@ -219,7 +219,7 @@ function findMax(arr) {
   }
 }
 
-console.log(findMax(arr));
+// console.log(findMax(arr));
 
 const output2 = arr.reduce(function (max, curr) {
   if (curr > max) {
@@ -228,7 +228,7 @@ const output2 = arr.reduce(function (max, curr) {
   return max;
 }, 0);
 
-console.log(output2);
+// console.log(output2);
 
 const users = [
   { firstName: "Akshay", lastName: "Saini", age: 26 },
@@ -246,17 +246,17 @@ const output3 = users.reduce((arr, curr) => {
   return arr;
 }, []);
 
-console.log(output3);
+// console.log(output3);
 
 const output4 = users.filter((x) => x.age < 30).map((x) => x.firstName);
 
-console.log(output4);
+// console.log(output4);
 
 //output ["Akshay Saini", "Donald Trump", "Elon Must", "Deepika Padukone"];
 
 const output5 = users.map((x) => x.firstName + " " + x.lastName);
 
-console.log(output5);
+// console.log(output5);
 
 //output {26:2, 75:1, 50:1}
 
@@ -269,4 +269,26 @@ const output6 = users.reduce((acc, curr) => {
   return acc;
 }, {});
 
-console.log(output6);
+// console.log(output6);
+
+let name1 = {
+  firstName: "vemula",
+  lastName: "jagadeesh",
+};
+
+let printFullName = function (homeName, mpbileNo) {
+  console.log(
+    this.firstName + " " + this.lastName + " " + homeName + " " + mpbileNo
+  );
+};
+
+let name2 = {
+  firstName: "rajendhar",
+  lastName: "vemula",
+};
+
+printFullName.call(name1, "korutla", "1234");
+printFullName.call(name2, "hyderabad", "2345");
+printFullName.apply(name1, ["metpally", "4567"]);
+let printName = printFullName.bind(name1, "medchal", "678");
+printName();

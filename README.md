@@ -852,3 +852,19 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - **reduce()**
 - reduce function basically used at a place where you have to take element of an array and come up with single value out of them
 - to find the sum or max number inside the array you can use reduce function
+
+### Call,Apply,Bind method
+
+- **Example**
+-         let name = {
+
+          }
+
+- **call method**
+- call method. which is used to invoke the function directly by passing in the reference.which points to the this variable inside the method
+
+- **apply method**
+- apply is exactly same as call method.the only diffrence is it takes 2nd argument as array list of the parameter which need to passed to this printfullname function
+
+- **bind method**
+- bind method doesnot directly invoke the method direclty instead it gives copy of the exactly same method which can be invoked later
