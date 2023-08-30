@@ -945,3 +945,26 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 
       let myName2 = printFullName.myBind(name, "korutla");
       myName2("Telangna", "Hyderabad");
+
+### Prototype and Prototype Inheritance
+
+-       let arr = ["Akshay","Aditya"];
+        let object = {
+             name:"Jagadeesh",
+             city:"Hyderabad",
+             getIntro: function() {
+               console.log(this.name + "from" +this.city);
+            }
+         }
+
+- suppose here when i do object.name i will get value as jagadeesh but when i do object. in browser console it will show lot of other properties and methods as well.so how it object getting access to other properties and methods as well.here prototype comes into the picture
+- so whenever you create object in javascript. JS Engine automatically without letting you know it attaches the object with some hidden properties and methods.
+- these are hidden properties you can access just by doiing object. and we can do lot things
+- its not just with object even in function case also works same.
+- whenever you can create anything in javascript even variable they get access to some of the hidden properties and methods. these come via prototype
+- **what is the prototype is?**
+- whenever you create any object JS engine puts some hidden properties and methods into object and attaches to your object
+- it attaches object to the your original object and that is how you get access to these methods and properties
+- if you want to access that hidden object you can write something like **arr.**proto\***\* for object **object.**proto\*\***
+- arr.**proto** same as Array.prototype it gives same result
+- **proto** is an object and each and every object in javascript has prototype so arr.**proto\_** also its own prototype that arr.**proto**.**proto**
