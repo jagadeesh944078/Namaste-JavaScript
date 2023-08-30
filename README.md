@@ -948,6 +948,10 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 
 ### Prototype and Prototype Inheritance
 
+**inheritance in javascript**
+
+- when an object trying access other properties and methods of object is known as inheritance in JS
+
 -       let arr = ["Akshay","Aditya"];
         let object = {
              name:"Jagadeesh",
@@ -968,3 +972,7 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - if you want to access that hidden object you can write something like **arr.**proto\***\* for object **object.**proto\*\***
 - arr.**proto** same as Array.prototype it gives same result
 - **proto** is an object and each and every object in javascript has prototype so arr.**proto\_** also its own prototype that arr.**proto**.**proto**
+- **what is the prototype chain**
+- here arr.**proto**.**proto** returns an object its similar as object.prototype and this object.prototype protype is null
+- so whenever we create an array it has its prototype which is Array.prototype and Array.prototype object also has prototype its object.prototype and this object.prototype prototype is actually null. that is end of the chain so this is called prototype chaining.
+- whether you make a function or a array or a object its actually down the protype chain ends up being an object.
