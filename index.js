@@ -325,3 +325,38 @@ const getCakeIngrediants = (ingrid_1) => {
 };
 
 console.log(getCakeIngrediants("egg")("chicken")("mutton"));
+
+/* Polyfill for bind method */
+
+let name = {
+  firstName: "vemula",
+  lastName: "Jagadeesh",
+};
+
+let printFullName = function (homeTown, state, city) {
+  console.log(
+    this.firstName +
+      " " +
+      this.lastName +
+      " " +
+      homeTown +
+      " " +
+      state +
+      " " +
+      city
+  );
+};
+
+let myName = printFullName.bind(name, "korutla");
+myName("Telangana", "Hyderabad");
+
+Function.prototype.myBind = function (...args1) {
+  let obj = this;
+  let parmas = args1.slice(1);
+  return function (...args2) {
+    obj.apply(args1[0], [...parmas, ...args2]);
+  };
+};
+
+let myName2 = printFullName.myBind(name, "korutla");
+myName2("Telangna", "Hyderabad");

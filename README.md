@@ -876,7 +876,8 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 1. Using bind method
 2. Using Closure
 
-**Curring example using bind method**
+- **Curring example using bind method**
+- Curring takes the function which accepts more than one parameter and breaks it into unary(one parameter) function.Hence the currying function take one parameter at a time
 
 - here we intentionally pass 2 over here and curry our method this how we do functio curring using bind method
 - we make a copy of this multify method and we create more methods out of it by presetting some arguments inside the funtions.like how we preset 2 as x over here
@@ -912,3 +913,35 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - Currying is helpful in Event Handling
 - By using Currying we can avoid passing same variable multiple times
 - currying can be used to make a higher-order function
+
+### Polyfill for bind method
+
+- Polyfill is sort of browser fallback method.and it is not supported by the browser by default what if suppose your browser doesn't have bind function.you have to create your own bind function
+- here i have created my own bind method. so first i have given name as myBind method so it should be accessible like bind method so i have given Function.prototype.myBind so it will be accessiable like bind method.
+- next i should return function out of it. so i have return function in it. next when i invoke myName2 function it should be invoked. so i should get access to printFullName. here i can access printFullName function using this keyword. this points to printFullName. so i stored this in the obj variable. and accessing printFullName using obj by adding call method iam able to call printFullName method.
+- and we need to accessiable that name object so i passed as array list using spread operator in the function as parameter so that i can access it
+
+  **Examples**
+
+-     let name = {
+          firstName: "vemula",
+          lastName: "Jagadeesh",
+      };
+
+       let printFullName = function (homeTown, state, city) {
+         console.log( this.firstName + " " + this.lastName + " " + homeTown + " " + state + " " + city);
+       };
+
+       let myName = printFullName.bind(name, "korutla");
+       myName("Telangana", "Hyderabad");
+
+      Function.prototype.myBind = function (...args1) {
+        let obj = this;
+        let parmas = args1.slice(1);
+        return function (...args2) {
+         obj.apply(args1[0], [...parmas, ...args2]);
+        };
+      };
+
+      let myName2 = printFullName.myBind(name, "korutla");
+      myName2("Telangna", "Hyderabad");
