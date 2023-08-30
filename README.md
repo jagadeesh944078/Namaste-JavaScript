@@ -868,3 +868,47 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 
 - **bind method**
 - bind method doesnot directly invoke the method direclty instead it gives copy of the exactly same method which can be invoked later
+
+### Currying
+
+- two ways we can Curry our funtion
+
+1. Using bind method
+2. Using Closure
+
+**Curring example using bind method**
+
+- here we intentionally pass 2 over here and curry our method this how we do functio curring using bind method
+- we make a copy of this multify method and we create more methods out of it by presetting some arguments inside the funtions.like how we preset 2 as x over here
+- here its something like presetting x value over here
+
+-     function multify(x, y) {
+         console.log(x * y);
+      }
+
+      const multifyTwo = multify.bind(this, 2);
+      <!-- here it will return something like this -->
+      <!-- function multify(y) {
+        let x = 2;
+        console.log(x*y);
+      } -->
+      multifyTwo(3);
+
+      const multifyThree = multify.bind(this, 3);
+      multifyThree(4);
+
+- **Curring example using Closure**
+
+-      const multify = function (x) {
+         return function (y) {
+          console.log(x * y);
+         };
+       };
+
+       const multifyTwo = multify(2);
+       multifyTwo(10);
+
+- **Uses of Currying Function**
+- Currying is helpful in Event Handling
+- By using Currying we can avoid passing same variable multiple times
+- currying can be used to make a higher-order function

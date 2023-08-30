@@ -190,105 +190,138 @@
 
 /* Reduce function examples */
 
-const arr = [6, 2, 3, 1, 4];
+// const arr = [6, 2, 3, 1, 4];
 
-function findSum(arr) {
-  let sum = 0;
-  for (let i = 0; i < arr.length; i++) {
-    sum = sum + arr[i];
-  }
-  return sum;
-}
+// function findSum(arr) {
+//   let sum = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     sum = sum + arr[i];
+//   }
+//   return sum;
+// }
 
 // console.log(findSum(arr));
 
-const output1 = arr.reduce(function (acc, curr) {
-  acc = acc + curr;
-  return acc;
-}, 0);
+// const output1 = arr.reduce(function (acc, curr) {
+//   acc = acc + curr;
+//   return acc;
+// }, 0);
 
 // console.log(output1);
 
-function findMax(arr) {
-  let max = 0;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] > max) {
-      max = arr[i];
-    }
-    return max;
-  }
-}
+// function findMax(arr) {
+//   let max = 0;
+//   for (let i = 0; i < arr.length; i++) {
+//     if (arr[i] > max) {
+//       max = arr[i];
+//     }
+//     return max;
+//   }
+// }
 
 // console.log(findMax(arr));
 
-const output2 = arr.reduce(function (max, curr) {
-  if (curr > max) {
-    max = curr;
-  }
-  return max;
-}, 0);
+// const output2 = arr.reduce(function (max, curr) {
+//   if (curr > max) {
+//     max = curr;
+//   }
+//   return max;
+// }, 0);
 
 // console.log(output2);
 
-const users = [
-  { firstName: "Akshay", lastName: "Saini", age: 26 },
-  { firstName: "Donald", lastName: "Trump", age: 75 },
-  { firstName: "Elon", lastName: "Must", age: 50 },
-  { firstName: "Deepika", lastName: "Padukone", age: 26 },
-];
+// const users = [
+//   { firstName: "Akshay", lastName: "Saini", age: 26 },
+//   { firstName: "Donald", lastName: "Trump", age: 75 },
+//   { firstName: "Elon", lastName: "Must", age: 50 },
+//   { firstName: "Deepika", lastName: "Padukone", age: 26 },
+// ];
 
 //output = ["Akshay","Deepika"];
 
-const output3 = users.reduce((arr, curr) => {
-  if (curr.age < 30) {
-    arr.push(curr.firstName);
-  }
-  return arr;
-}, []);
+// const output3 = users.reduce((arr, curr) => {
+//   if (curr.age < 30) {
+//     arr.push(curr.firstName);
+//   }
+//   return arr;
+// }, []);
 
 // console.log(output3);
 
-const output4 = users.filter((x) => x.age < 30).map((x) => x.firstName);
+// const output4 = users.filter((x) => x.age < 30).map((x) => x.firstName);
 
 // console.log(output4);
 
 //output ["Akshay Saini", "Donald Trump", "Elon Must", "Deepika Padukone"];
 
-const output5 = users.map((x) => x.firstName + " " + x.lastName);
+// const output5 = users.map((x) => x.firstName + " " + x.lastName);
 
 // console.log(output5);
 
 //output {26:2, 75:1, 50:1}
 
-const output6 = users.reduce((acc, curr) => {
-  if (acc[curr.age]) {
-    acc[curr.age] = ++acc[curr.age];
-  } else {
-    acc[curr.age] = 1;
-  }
-  return acc;
-}, {});
+// const output6 = users.reduce((acc, curr) => {
+//   if (acc[curr.age]) {
+//     acc[curr.age] = ++acc[curr.age];
+//   } else {
+//     acc[curr.age] = 1;
+//   }
+//   return acc;
+// }, {});
 
 // console.log(output6);
 
-let name1 = {
-  firstName: "vemula",
-  lastName: "jagadeesh",
+// let name1 = {
+//   firstName: "vemula",
+//   lastName: "jagadeesh",
+// };
+
+// let printFullName = function (homeName, mpbileNo) {
+//   console.log(
+//     this.firstName + " " + this.lastName + " " + homeName + " " + mpbileNo
+//   );
+// };
+
+// let name2 = {
+//   firstName: "rajendhar",
+//   lastName: "vemula",
+// };
+
+// printFullName.call(name1, "korutla", "1234");
+// printFullName.call(name2, "hyderabad", "2345");
+// printFullName.apply(name1, ["metpally", "4567"]);
+// let printName = printFullName.bind(name1, "medchal", "678");
+// printName();
+
+/* Curring examples with bind method*/
+
+// function multify(x, y) {
+//   console.log(x * y);
+// }
+
+// const multifyTwo = multify.bind(this, 2);
+// multifyTwo(3);
+
+// const multifyThree = multify.bind(this, 3);
+// multifyThree(4);
+
+/* Curring example with closure */
+
+const multify = function (x) {
+  return function (y) {
+    console.log(x * y);
+  };
 };
 
-let printFullName = function (homeName, mpbileNo) {
-  console.log(
-    this.firstName + " " + this.lastName + " " + homeName + " " + mpbileNo
-  );
+const multifyTwo = multify(2);
+multifyTwo(10);
+
+const getCakeIngrediants = (ingrid_1) => {
+  return (ingrid_2) => {
+    return (ingrid_3) => {
+      return `${ingrid_1}, ${ingrid_2}, ${ingrid_3}`;
+    };
+  };
 };
 
-let name2 = {
-  firstName: "rajendhar",
-  lastName: "vemula",
-};
-
-printFullName.call(name1, "korutla", "1234");
-printFullName.call(name2, "hyderabad", "2345");
-printFullName.apply(name1, ["metpally", "4567"]);
-let printName = printFullName.bind(name1, "medchal", "678");
-printName();
+console.log(getCakeIngrediants("egg")("chicken")("mutton"));
