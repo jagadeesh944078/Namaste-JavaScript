@@ -307,56 +307,76 @@
 
 /* Curring example with closure */
 
-const multify = function (x) {
-  return function (y) {
-    console.log(x * y);
-  };
-};
+// const multify = function (x) {
+//   return function (y) {
+//     console.log(x * y);
+//   };
+// };
 
-const multifyTwo = multify(2);
-multifyTwo(10);
+// const multifyTwo = multify(2);
+// multifyTwo(10);
 
-const getCakeIngrediants = (ingrid_1) => {
-  return (ingrid_2) => {
-    return (ingrid_3) => {
-      return `${ingrid_1}, ${ingrid_2}, ${ingrid_3}`;
-    };
-  };
-};
+// const getCakeIngrediants = (ingrid_1) => {
+//   return (ingrid_2) => {
+//     return (ingrid_3) => {
+//       return `${ingrid_1}, ${ingrid_2}, ${ingrid_3}`;
+//     };
+//   };
+// };
 
-console.log(getCakeIngrediants("egg")("chicken")("mutton"));
+// console.log(getCakeIngrediants("egg")("chicken")("mutton"));
 
 /* Polyfill for bind method */
 
-let name = {
-  firstName: "vemula",
-  lastName: "Jagadeesh",
+// let name = {
+//   firstName: "vemula",
+//   lastName: "Jagadeesh",
+// };
+
+// let printFullName = function (homeTown, state, city) {
+//   console.log(
+//     this.firstName +
+//       " " +
+//       this.lastName +
+//       " " +
+//       homeTown +
+//       " " +
+//       state +
+//       " " +
+//       city
+//   );
+// };
+
+// let myName = printFullName.bind(name, "korutla");
+// myName("Telangana", "Hyderabad");
+
+// Function.prototype.myBind = function (...args1) {
+//   let obj = this;
+//   let parmas = args1.slice(1);
+//   return function (...args2) {
+//     obj.apply(args1[0], [...parmas, ...args2]);
+//   };
+// };
+
+// let myName2 = printFullName.myBind(name, "korutla");
+// myName2("Telangna", "Hyderabad");
+
+/* prototype and prototype inheritance */
+
+const object = {
+  name: "jagadeesh",
+  state: "telangana",
+  getIntro: function () {
+    console.log(this.name + " " + this.state);
+  },
 };
 
-let printFullName = function (homeTown, state, city) {
-  console.log(
-    this.firstName +
-      " " +
-      this.lastName +
-      " " +
-      homeTown +
-      " " +
-      state +
-      " " +
-      city
-  );
+const obj2 = {
+  name: "rajashekar",
 };
 
-let myName = printFullName.bind(name, "korutla");
-myName("Telangana", "Hyderabad");
-
-Function.prototype.myBind = function (...args1) {
-  let obj = this;
-  let parmas = args1.slice(1);
-  return function (...args2) {
-    obj.apply(args1[0], [...parmas, ...args2]);
-  };
+Function.prototype.mybind = function () {
+  console.log("mybind prototype called");
 };
 
-let myName2 = printFullName.myBind(name, "korutla");
-myName2("Telangna", "Hyderabad");
+function printName() {}

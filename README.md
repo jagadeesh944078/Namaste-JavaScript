@@ -976,3 +976,63 @@ for more questions go through this **<a href="/closure_interview.md">Closure Int
 - here arr.**proto**.**proto** returns an object its similar as object.prototype and this object.prototype protype is null
 - so whenever we create an array it has its prototype which is Array.prototype and Array.prototype object also has prototype its object.prototype and this object.prototype prototype is actually null. that is end of the chain so this is called prototype chaining.
 - whether you make a function or a array or a object its actually down the protype chain ends up being an object.
+
+### Local Storage && Session Storage
+
+- webstorage api is used by the developer to store something in the web browser.and this data is nothing but key value pair of string.you can say it has very big object which contain only string.so its that simple.
+- now there are 2 mechanisms to store this data
+
+1. session storage
+2. local storage
+
+- **session storage**
+- when i say we store data in session storage that means the data is persisted only for that particular session.
+
+- **what do you mean by session?**
+- suppose a user is visiting the webapp.and as soon as he visites the webapp the session is started and the data which is stored in session storage will only be persisted till he is on that web browser window.
+- as soon as he closes the window or tab of that window data will be lost that is session storage.
+- but it is very useful then cookies.unlike cookies session storage data is not being sent to the server while making the network request call.
+- session storage data has a larger capacity to hold. like in cookies you can store 4000bytes of data.while in session storage you can store atleast 5mb of data.
+
+- **local storage**
+- its just same as session storage.but it doesnot comes with expiry. even if we closed the tab or web browser or even if you shutdown the system.and comeback to the webbrowser visits the same website that data still persistent in the browser.that is power of local storage.
+- you can keep the data stored for that user in his browser till as long as he want.
+- local storage has higher memory capacity then cookies and session storage.the memory captiy depends on what type of device you are using and what type of browser you are using it totaly depends on that.but roughly you can say atleast 5mb even if you use mobile phone.
+- some companies stores users data in their local storage
+- sometimes it can used for optimizing the perfornance of web app.actually getting data from local storage is very much faster then making network call and getting data from the server.
+- if you see flipkart they store lot of data into the local storage
+- you can keep user specific data using local storage and session storage
+- important thing about storage api is that they follow same origin policy that is because of the security concerns
+- due to security reason they just follow same origin policy
+- origin comprises 3 things
+
+1. protocol (which is like http or https)
+2. Host or domain (which is like flipkart.com or amazon.com)
+3. port (which 8080 or 8081 wherever the app is hoisted)
+
+these are the 3 things which defines the origin
+
+- when we say we are setting some data into local storage that means we are setting for that particular origin.
+- example you are setting data for https://www.flipkart.com and you can acces data in https://www.flipkart.com/pages also but you canot access data in diffrent origin suppose amazon.com
+- https://www.flipkart.com:8080 you cannot access because when port changes or host changes or protocol changes. the origin changes and local storage for each and every origin is diffrent in the browser.
+- that is what same origin policy in the storage api refers too.
+
+- **local storage stored on the window object of the browser**. so window object is the global object. you can access by using window.localstorage just because localstorage stored on the window object
+- and you can type localstorage direclty just because if you type in browser console you can type localstorage directly in developers console.
+- **localstorage.setItem()** means setItem is the function which is again stored on the top of local storage api.it takes key and value pair(2 arguments).key & value pair can be strings **localstorage.setItem("hello", "world")**
+- if you try to set it again **localstorage.setItem("hello", "world2")** it overides previous one.
+- if you want to fetch the data from localstorage will use **localstorage.getItem("hello")** we pass only one argument which is key.it returns value of the key.
+- **localstorage.removeItem("hello")** it removes our data from local storage.it removes that specific key & value pair data.
+- **localstorage.clear()** it automatically clears everything from the local storage.
+
+- **helpful for machine coding interview**
+- **example 1**
+-       const user = {name:"jagadeesh"};
+        localstorage.setItem("user", user);
+- suppose if you are trying to store object in the local storage then when you write code like above example what it will happen is it will try parse object into the string.
+- **example 2**
+-       const user = {name:"jagadeesh"};
+        localstorage.setItem("user", JSON.stringify(user));
+- it will stringify your object store as you expected.you can see object in the local storage.
+- if you want to get object from the local storage you can use like localstorage.getItem("user") it will return in the string.
+- so try to use JSON.parse(localstorage.getItem("user")); it will object as you expected.
