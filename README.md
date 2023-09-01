@@ -1036,3 +1036,24 @@ these are the 3 things which defines the origin
 - it will stringify your object store as you expected.you can see object in the local storage.
 - if you want to get object from the local storage you can use like localstorage.getItem("user") it will return in the string.
 - so try to use JSON.parse(localstorage.getItem("user")); it will object as you expected.
+
+### async vs defer
+
+- async & defer are boolean attributes which are used in along with the script tags to load the external scripts efficiently into our web page
+- 3 things we are going to cover in this script tag one is using normal script tag. and second is using async attribute and third is using defer attribute.
+- when you load the webpage two things will happen first is the html parsing and second is the loading of the scripts.
+- loading of the scripts contain 2 parts. one is fetching script from network and second is actually executing the script line by line.
+
+- **Normal Script Tag**
+- in Normal Script tag first html parsing goes on as soon as it encounter the script tag it stops html parsing.and it fetches the script from the network and after feteching it executes it line by line. after execution completes then only html parsing continues
+
+- **Async with Script Tag**
+- here when you use Async in script tag first the html parsing goes on and it fetches script from the network async manner and parallelly.as soon as scripts are avaiable scripts are executed after only html parsing continuous.
+
+- **Defer with Script Tag**
+- incase of Defer with script tag first the html parsing goes on and script are fetched in parallel.only scripts are executed once html parsing is completed.
+
+- async attribute doesnot guarrantee the order of execution of script.but Defer does.
+- suppose if you have multiple scripts which are depended on each other.like some scripts are dependent on one another.then using async attribute doesnot give gurrantee that it will execute in particular order.that may break your code.in that case you should prefer Defer.
+- another example is you have to load to external scripts. lets take example of google analytics scripts,other scripts which are quite modular and independent of normal code. in that case it make sense to use async attribute.and not use defer.otherwise its mostly wise to use defer attribute.because defer attribute maintains the order of the exectuion of the scripts. its kind of best of both worlds.
+- so while your html parsing going on the scripts fetched from network.and only executed once html parsing is done
