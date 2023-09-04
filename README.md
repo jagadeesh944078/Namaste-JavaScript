@@ -1064,7 +1064,7 @@ these are the 3 things which defines the origin
 
 - Event Bubbling & Capturing are 2 ways of Event Progation in the DOM tree. so suppose we have nested html elements.
 - **Example**
-- suppose and we have div with the id #grandparent and suppose we have div with the id #parent and we have child div with id #child.suppose if any event occurs to child div it prograte to parent div also.
+- suppose and we have div with the id #grandparent and suppose we have div with the id #parent and we have child div with id #child.suppose if any event occurs to child div it prograte to parent div and grand parent div also.
 - incase of bubbling suppose when u click on child onclick event first child event will be called then moves upto the hieraracy and it goes directly till end of the DOM
 - so what happens is first onClickChild() event will be called the onClickParent() event will be called and finally onClickGrandParent() event will be called. so that is how event Bubbline works
 - to clearly understand this you can remember like bubbles always comes out.so it is like bubbling out the DOM tree
