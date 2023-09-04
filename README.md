@@ -1057,3 +1057,35 @@ these are the 3 things which defines the origin
 - suppose if you have multiple scripts which are depended on each other.like some scripts are dependent on one another.then using async attribute doesnot give gurrantee that it will execute in particular order.that may break your code.in that case you should prefer Defer.
 - another example is you have to load to external scripts. lets take example of google analytics scripts,other scripts which are quite modular and independent of normal code. in that case it make sense to use async attribute.and not use defer.otherwise its mostly wise to use defer attribute.because defer attribute maintains the order of the exectuion of the scripts. its kind of best of both worlds.
 - so while your html parsing going on the scripts fetched from network.and only executed once html parsing is done
+
+### Event Bubbling & Capturing(trickling)
+
+**- Event Bubbling**
+
+- Event Bubbling & Capturing are 2 ways of Event Progation in the DOM tree. so suppose we have nested html elements.
+- **Example**
+- suppose and we have div with the id #grandparent and suppose we have div with the id #parent and we have child div with id #child.suppose if any event occurs to child div it prograte to parent div also.
+- incase of bubbling suppose when u click on child onclick event first child event will be called then moves upto the hieraracy and it goes directly till end of the DOM
+- so what happens is first onClickChild() event will be called the onClickParent() event will be called and finally onClickGrandParent() event will be called. so that is how event Bubbline works
+- to clearly understand this you can remember like bubbles always comes out.so it is like bubbling out the DOM tree
+  **- Event Capturing**
+- opposite to Event Bubbling
+- Event Capturing is upwards down.its capturing down the DOM tree.what happens here is all 3 event handlers will be triggered but the order will be complete opposite to what was there in event bubbling.
+- so when u click on child garentparent click handler will be called first then parent and then child will be called.
+- incase of bubbling when u click on parent click handler then it propagated upto the DOM so first parent click event will be called the grand parent will be called
+- incase of capturing its opposite first onclick grandparent then onclick parent will be called
+- so that is what Event bubbling & capturing
+  **- Event Capturing also known as Event Trickling**
+- for some people its easy to understand like trickling down and bubbling up.it becomes easier to remember.
+- netscape said event capturing makes sense and microsoft said event bubbling makes sense. between these argument W3c make standard like both are accepted.it is upto developers what they use.
+
+- suppose there is a addEventListener() here 3rd argument we can pass boolean usecapture flag.
+- so here first argument is 'click' and 2nd argument is callback method () => {} which is called when u click on the event happens and 3rd is usecapture(true/false) boolean falg
+- based on true or false browser decides what to do either event bubbling or event capturing
+- bydefault if you pass false or dont pass anything as 3rd argument what happen is the events are bubble up or they will go up the hierarchy of the DOM
+- when u pass true then it trickle down the event
+- that is how you can configure whether you want to use event bubbling or capturing
+- in w3c model cycle will anyways continue.if you these click event handler and suppose click event encounter.what will be happen is the cycle will continue.here events will tickling down and bubbling up
+- but using flag you can control on whether to capture these events or bubbles these events
+- these bubbling and capturing are quite expensive things
+  so you can stop using stopPropagation

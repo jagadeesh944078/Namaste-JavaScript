@@ -363,20 +363,45 @@
 
 /* prototype and prototype inheritance */
 
-const object = {
-  name: "jagadeesh",
-  state: "telangana",
-  getIntro: function () {
-    console.log(this.name + " " + this.state);
+// const object = {
+//   name: "jagadeesh",
+//   state: "telangana",
+//   getIntro: function () {
+//     console.log(this.name + " " + this.state);
+//   },
+// };
+
+// const obj2 = {
+//   name: "rajashekar",
+// };
+
+// Function.prototype.mybind = function () {
+//   console.log("mybind prototype called");
+// };
+
+// function printName() {}
+
+document.querySelector("#grand-parent").addEventListener(
+  "click",
+  () => {
+    console.log("Grand Parent Clicked");
   },
-};
+  false
+);
 
-const obj2 = {
-  name: "rajashekar",
-};
+document.querySelector("#parent").addEventListener(
+  "click",
+  (e) => {
+    console.log("Parent Clicked");
+    // e.stopPropagation();
+  },
+  false
+);
 
-Function.prototype.mybind = function () {
-  console.log("mybind prototype called");
-};
-
-function printName() {}
+document.querySelector("#child").addEventListener(
+  "click",
+  () => {
+    console.log("child Clicked");
+  },
+  true
+);
