@@ -1062,6 +1062,7 @@ these are the 3 things which defines the origin
 
 **- Event Bubbling**
 
+- Event Bubbling is a concept in the DOM (Document Object Model). It happens when an element receives an event, and that event bubbles up (or you can say is transmitted or propagated) to its parent and ancestor elements in the DOM tree until it gets to the root element.
 - Event Bubbling & Capturing are 2 ways of Event Progation in the DOM tree. so suppose we have nested html elements.
 - **Example**
 - suppose and we have div with the id #grandparent and suppose we have div with the id #parent and we have child div with id #child.suppose if any event occurs to child div it prograte to parent div and grand parent div also.
