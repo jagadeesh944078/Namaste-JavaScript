@@ -1090,3 +1090,26 @@ these are the 3 things which defines the origin
 - but using flag you can control on whether to capture these events or bubbles these events
 - these bubbling and capturing are quite expensive things
   so you can stop using stopPropagation
+
+### Event Delegation
+
+- Event Delegation is the technique of handling events in the better way. this is only possible because of the way how event propagate up hieraracy of the DOM tree.
+- event delegation is based upon event bubbling only.just because event bubbling exist event delegation also exist.
+- **example**
+- lets take an ecommerce website it has alot of events like categories(laptops, shoes ,mobile) etc.. whenever i click laptop it takes you to new page.like webpage/laptops similarly for mobiles also webpage/mobiles and lot of things there inside after navigating to that page.
+- so we are concerning about events inside that particular web page.what happen here is they will attach such eventlistners to each and every id individual html element.to redirect to the page they will use something like window.location.href or similar to this.
+- this is not a good way to do because this list can grow infinite scroll in the browser window. and we dont know how many such elements exist.
+- what will happen is we will eventually loading our page and suppose we have implemented lazy loading or infinite scrolling then we will keep on adding these child elements. such individual elements into our web page. we will keep on attaching these event listeners for our web page after sometime what will happen is our page will be event handlers hanging around and those can lead to much performence issues.
+- the better way to handle this is using event delegation. Event delegation says that instead of adding eventlistners to each and every child elements or the html elements individually. we should rather attach eventhandler to parent of these elements
+- insteading attaching eventhandlers to each and every child elemets we will somehow try to attach event handler to parent of these child elements
+- so when user clicks on laptop event will happen there then we will bubbled out to their parent and event handler attach over there will be triggered and callback function will be called for event handler which is attached to catagory
+- what we have done here is instead of having so many eventhandlers we created single eventhandler and just because of concept of event bubbling now event are now being propagated up the hieraracy. and this parent listnening all to events happening inside the these child elements
+  **Pros and Cons of event delegation**
+- first benefit of event delegation is memory. so what happens is when we are using event delegation we need to attach single event handler only. so it saves the lot of memory
+- it also mitigate risk of performence bottle neck
+- writting less code while we are coding we need to write less code to attach event handler to the parent rather then attaching event handlers to each and every child element
+- DOM manipulation. we have infinite scroll attached to your app. and our elements are dynamically added so what will happen is if we attach event handler to each and every html element its tough for us to add the element and attach eventlistner to them. so rather what we are trying to do now is we are attaching event listner to the parent and the childs have been taken care of accordingly.so if new childs are added to parent it doesnot matter. because all these childrens will obviously bubbled up or propagated events up the hierarachy and anyway parent is listnening.that's another benefit
+  **cons**
+- first limitation of event delegation is all the events are not bubbled up its like blur focus and resizing the window these are some event not bubbled up the hierachy. because they have theire own risk.yes there are some events which are not bubbled up.
+- another limitation is sometimes what we used to do is we used to call stopprogation and then stopped the progation at that point of time and events are not bubbled up so if you are using stopprogation anytime in your code then eventually that wont work.to let event delegation works you need to not use stopprogation let the events bubbled up.
+- its just kind of check before implementing event delegation try to use event delegation wherever its possible.optimize website as much as possible
