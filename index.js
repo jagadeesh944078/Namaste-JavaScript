@@ -381,27 +381,121 @@
 
 // function printName() {}
 
-document.querySelector("#grand-parent").addEventListener(
-  "click",
-  () => {
-    console.log("Grand Parent Clicked");
-  },
-  false
-);
+/* Event bubbling and Event Capturing */
 
-document.querySelector("#parent").addEventListener(
-  "click",
-  (e) => {
-    console.log("Parent Clicked");
-    // e.stopPropagation();
-  },
-  false
-);
+// document.querySelector("#grand-parent").addEventListener(
+//   "click",
+//   () => {
+//     console.log("Grand Parent Clicked");
+//   },
+//   false
+// );
 
-document.querySelector("#child").addEventListener(
-  "click",
-  () => {
-    console.log("child Clicked");
-  },
-  true
-);
+// document.querySelector("#parent").addEventListener(
+//   "click",
+//   (e) => {
+//     console.log("Parent Clicked");
+//     // e.stopPropagation();
+//   },
+//   false
+// );
+
+// document.querySelector("#child").addEventListener(
+//   "click",
+//   () => {
+//     console.log("child Clicked");
+//   },
+//   true
+// );
+
+/* Event Delegation */
+// document.querySelector("#form").addEventListener("keyup", (e) => {
+//   console.log(e.target.tagName);
+//   if (e.target.dataset.uppercase != undefined) {
+//     e.target.value = e.target.value.toUpperCase();
+//   }
+// });
+
+/* Debouncing */
+// let count = 0;
+// const getData = () => {
+//   console.log("event called", count++);
+// };
+
+// const debounce = function (fn, d) {
+//   let timer;
+//   return function () {
+//     let context = this;
+//     clearInterval(timer);
+//     timer = setTimeout(() => {
+//       fn();
+//     }, d);
+//   };
+// };
+
+// const betterFunction = debounce(getData, 300);
+
+/* Promise Chaining */
+
+const cart = ["shoes", "pants", "shirts"];
+
+function createOrder() {
+  const pr = new Promise(function (resolve, reject) {
+    if (!validationCart()) {
+      const err = new Error("cart is not valid");
+      reject(err);
+    }
+    const orderId = "1234";
+    setTimeout(function () {
+      resolve(orderId);
+    }, 5000);
+  });
+  return pr;
+}
+
+function validationCart() {
+  return true;
+}
+
+function proceedToPayment() {
+  const pr = new Promise(function (resolve, reject) {
+    resolve("payment done successfully");
+  });
+  return pr;
+}
+
+function showOrderSummary() {
+  const pr = new Promise(function (resolve, reject) {
+    resolve("order summary updated successfully");
+  });
+  return pr;
+}
+
+function updateTheWallet() {
+  const pr = new Promise(function (resolve, reject) {
+    resolve("updated the wallet successfully");
+  });
+  return pr;
+}
+
+const promise = createOrder(cart);
+console.log(promise);
+
+promise
+  .then((orderId) => proceedToPayment(orderId))
+  .then((msg) => showOrderSummary(msg))
+  .then((msg) => updateTheWallet(msg))
+  .then((msg) => console.log(msg))
+  .catch((err) => console.log(err.message));
+
+const p1 = Promise.resolve(4);
+const p2 = 45;
+const p3 = new Promise((resolve, reject) => {
+  setTimeout(function () {
+    resolve("foo");
+  }, 2000);
+});
+
+Promise.all([p1, p2, p3]).then((values) => console.log(values));
+
+/* Async/Await  */

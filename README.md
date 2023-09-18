@@ -1113,3 +1113,43 @@ these are the 3 things which defines the origin
 - first limitation of event delegation is all the events are not bubbled up its like blur focus and resizing the window these are some event not bubbled up the hierachy. because they have theire own risk.yes there are some events which are not bubbled up.
 - another limitation is sometimes what we used to do is we used to call stopprogation and then stopped the progation at that point of time and events are not bubbled up so if you are using stopprogation anytime in your code then eventually that wont work.to let event delegation works you need to not use stopprogation let the events bubbled up.
 - its just kind of check before implementing event delegation try to use event delegation wherever its possible.optimize website as much as possible
+
+### Debouncing
+
+- Debouncing is helpfull while you are developing web apps.majorly when you are developing customer facing web app you need to be very performent.your website should not freeze anytime while user doing anything on the browser.
+-
+
+### Throttling
+
+- generally used for performence optimization. or rate limiting the function call or execution
+
+### Debouncing vs Throttling
+
+- interview will get questions like what is debouncing and thottling and the next question will be Debouncing vs Throttling.sometimes interviewer will ask implement own implementation of Debouncing or implementation of Throttling.
+- some of smart interviewers will not ask you directly.instead they will create the scenario where these concepts are used.so these concepts are normally used for performence optimization and rate limiting of function call or execution
+- both are used for optimizing the performence of the web app.it happens by limiting the rate of exection of the particular function.that function could be anything whether its going and fetching the data from the api or it could be logging from any logger.
+- so sometimes our function is called lot of times.we attach function to event listner and then its calling repeatedly and unnessessarly.
+  so we could limit the rate of execution and optimize the performence of the web app.
+- **which one is better Debouncing or Thottling?**
+- its totally dependes on the usecase and scenerio where you are applying these concepts sometimes Debouncing make sense and sometimes Thottling makes sense.
+- understanding how they works gives you the better clarity how the scenerios will be look like.so there is no specific answer
+
+### callback hell
+
+- callbacks are like super powerfull way of handle async operations in javascript
+- asynchronous programming exist in javascript because callback exist
+- while we are writing callbacks mainly will face 2 issues
+- 1.callback hell(callback inside callback inside callback inside)
+- 2.inversion of control(we loose control over the program here we have given control of the function to the some another function. now we dont know whether that function ever execute callback or not) this is invert of control another big issue in callback
+
+### inversion of control
+
+- inversion of control is like you will loose the control of your code when we are using callbacks.
+
+### Promises
+
+- promises are used to handle asynchronous operations in javascript
+- **what is the promise?**
+- promise object is placeholder for certain period of time until we receive a value from asynchronous operation.OR you can say its a container for future value or you can say which is in MDN DOCS promis is an object representing eventual completion of asychronous operation
+
+### CORS
