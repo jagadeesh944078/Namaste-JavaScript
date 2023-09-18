@@ -1153,3 +1153,18 @@ these are the 3 things which defines the origin
 - promise object is placeholder for certain period of time until we receive a value from asynchronous operation.OR you can say its a container for future value or you can say which is in MDN DOCS promis is an object representing eventual completion of asychronous operation
 
 ### CORS
+
+- CORS is a mechanism which uses additional http header to tell the browser whether a specific web app can share resource with another web app.but major point to remember is both webapps should have diffrent origin.if they have same origin they can share resources very easily.if they dont have same origin then they need to follow the CORS mechanisam
+- long back when the cors was not standardized browser never allowed web apps to share resources between diffrent origins.
+- after CORS becomes standard you can get data from diffrent origin or port or protocal or subdomain also
+- to get data from diffrent domain is major chunk.see now world moving onto microservice architecture. where we have diffrent set of some loosling coupled apps which are hosted on diffrent domain. that's how large scale application build these days. that's why resource sharing is importent.because of that cors mechanisam becomes web standard. now we can share resources.
+
+- **example**
+- suppose we have two apps in diffrent domain or you can say diffrent origin now they want to share resources.let assume A and B.and A requesting something from B.so what happens is CORS Preflight(Preflight option call is made before actual api call made) mechanism is followed.
+- suppose A wants to post call to B. first Preflight call(which is also called options call) will be made. browser uses mechansim use additional http header mechanism to verify this request.if request is valid B will set some additional headers which will let browser know this is safe then actually post call made.by this way resources are shared. and this is what happens behind the scene in CORS
+- **Additional Http Header**
+- when call is made server setsup some header.most common header is **Accept-Control-Allow-Origin** so this header set by the server and it can have diffrent values.suppose when we call public api call this server sets **Accept-Control-Allow-Origin is \***. _ means any domain outside of the domain can access this. if they want to restrict they will give the particular domain name instead of _. so only that domain allowed to make calls.
+- there are other Http Headers also that is Accept-Control-Allow-Methods and using this server can restrict this the methods which can be accessed.and like that we have so many http headers
+
+- **does all the request made from A to B follow this Preflight call made?**
+- answer is no. here there are 2 types of request one is simple request and another one is Preflight request.so some request browser automatically tag them as simple request where browser wont make preflight request
