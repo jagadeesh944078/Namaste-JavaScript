@@ -479,23 +479,140 @@ function updateTheWallet() {
 }
 
 const promise = createOrder(cart);
-console.log(promise);
+// console.log(promise);
 
-promise
-  .then((orderId) => proceedToPayment(orderId))
-  .then((msg) => showOrderSummary(msg))
-  .then((msg) => updateTheWallet(msg))
-  .then((msg) => console.log(msg))
-  .catch((err) => console.log(err.message));
+// promise
+//   .then((orderId) => proceedToPayment(orderId))
+//   .then((msg) => showOrderSummary(msg))
+//   .then((msg) => updateTheWallet(msg))
+//   .then((msg) => console.log(msg))
+//   .catch((err) => console.log(err.message));
 
-const p1 = Promise.resolve(4);
-const p2 = 45;
-const p3 = new Promise((resolve, reject) => {
-  setTimeout(function () {
-    resolve("foo");
-  }, 2000);
-});
+/* Promise.all */
 
-Promise.all([p1, p2, p3]).then((values) => console.log(values));
+// const p1 = Promise.resolve(4);
+// const p2 = 45;
+// const p3 = new Promise((resolve, reject) => {
+//   setTimeout(function () {
+//     resolve("foo");
+//   }, 2000);
+// });
+
+// Promise.all([p1, p2, p3]).then((values) => console.log(values));
 
 /* Async/Await  */
+
+//Example1
+
+// async function getData1() {
+//   return "Namaste";
+// }
+
+// const dataPromise1 = getData1();
+// dataPromise.then((res) => console.log(res));
+
+// Example2
+
+// const promise1 = new Promise((resolve, reject) => {
+//   resolve("Namaste Javascript");
+// });
+
+// async function getData2() {
+//   return promise1;
+// }
+
+// const dataPromise2 = getData2();
+// dataPromise2.then((res) => console.log(res));
+
+// Example3
+
+// const promise2 = new Promise((resolve, reject) => {
+//   resolve("using normal javascript function");
+// });
+
+// function getData3() {
+//   promise2.then((res) => console.log(res));
+// }
+
+// getData3();
+
+// Example4
+
+// const promise4 = new Promise((resolve, reject) => {
+//   resolve("using normal async/wait concept");
+// });
+
+// async function getData4() {
+//   const res = await promise4;
+//   console.log(res);
+// }
+
+// getData4();
+
+// Example 5 (diffrence b/w resolving promise using Asyn/await & normal function);
+
+// const promise5 = new Promise((resolve, reject) => {
+//   resolve("resolving promise using async/await concept");
+// });
+
+// function getData() {
+//   promise5.then((res) => console.log(res));
+//   console.log("Namaste Javascript");
+// }
+
+// async function getData() {
+//   const val = await promise5;
+//   console.log(val);
+//   console.log("Namasthe Javascript");
+// }
+
+// getData();
+
+// Example 6
+
+// const promise5 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("resolving promise1 using async/await");
+//   }, 20000);
+// });
+
+// const promise6 = new Promise((resolve, reject) => {
+//   setTimeout(() => {
+//     resolve("resolving promise2 using async/await");
+//   }, 40000);
+// });
+
+// async function handlePromise() {
+//   console.log("hello world");
+//   // JS engine it wait for promise to resolve(it looks like waiting for promise but actually it doesnot)
+//   const val1 = await promise5;
+//   console.log(val1);
+//   const val2 = await promise6;
+//   console.log(val2);
+// }
+
+// hanldePromise();
+const API_URL = "https://api.github.com/users/jagadeesh944078";
+
+// async function hanldePromise() {
+//   try {
+//     const data = await fetch(API_URL);
+//     const jsonValue = await data.json();
+//     console.log(jsonValue);
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
+
+// hanldePromise();
+
+async function hanldePromise() {
+  const data = await fetch(API_URL);
+  const jsonValue = await data.json();
+  console.log(jsonValue);
+  // fetch(API_URL)
+  //   .then((res) => res.json())
+  //   .then((res) => console.log(res));
+}
+
+hanldePromise().catch((err) => console.log(err));
