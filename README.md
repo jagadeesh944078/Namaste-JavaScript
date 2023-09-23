@@ -1146,12 +1146,6 @@ these are the 3 things which defines the origin
 
 - inversion of control is like you will loose the control of your code when we are using callbacks.
 
-### Promises
-
-- promises are used to handle asynchronous operations in javascript
-- **what is the promise?**
-- promise object is placeholder for certain period of time until we receive a value from asynchronous operation.OR you can say its a container for future value or you can say which is in MDN DOCS promis is an object representing eventual completion of asychronous operation
-
 ### CORS
 
 - CORS is a mechanism which uses additional http header to tell the browser whether a specific web app can share resource with another web app.but major point to remember is both webapps should have diffrent origin.if they have same origin they can share resources very easily.if they dont have same origin then they need to follow the CORS mechanisam
