@@ -1,7 +1,7 @@
 ### Promises
 
 - promises are used to handle asynchronous operations in javascript
-- what is promise?
+- **what is promise?**
 - promise object is a placeholder for certain period of time until we receive value from asynchronous operations or you can say promise is the container for the future value or promise is the object representation of the eventual completion or failure of asynchronous operation
 
 - **javascript gives gurantee that this promise object execute only once**
