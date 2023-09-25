@@ -23,3 +23,8 @@
 - ### Promise Chaining
 - to avoid callback hell we actually use promise chaining concept
 - you have to write return always when you are doing chaining then only data passed down the chain.so here our code will not grow horizantally but it goes in meaningfull chaining process
+
+- **how do you create the promise?**
+- we can create promise using new keyword and new Promise() constructor takes function as parameter and this function takes 2 parameters which are resolve and reject and these two functions given by javascript to build the promise.with this resolve and reject we can will handle promise either we can resolve or reject the promise.there is nothing else we can do.and we can resolve only once.this is how we create promise
+- **what we will do inside the promise?**
+- we will write the logic of handling whatever we need to do inside createOrder function.first it will take cart item and createOrder(this is place we write logic to store data in db but we dont have DB connection) and we will validateCart then you will make an api call you wiil get orderId that you will return the success
