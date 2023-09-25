@@ -382,7 +382,7 @@
 
 -     function x() {
           var i =1;
-          setTimeOut(function() {
+          setTimeout(function() {
              console.log(i);
           },3000);
           console.log("Namasthe Javascript")
@@ -397,8 +397,8 @@
 
 -     function x() {
           var i =1;
-          for(let i=1; i<=5; i++>){
-            setTimeOut(function() {
+          for(let i=1; i<=5; i++){
+            setTimeout(function() {
              console.log(i);
             }, i*1000);
           }
@@ -416,9 +416,9 @@
 
 -     function x() {
           var i =1;
-          for(let i=1; i<=5; i++>){
+          for(let i=1; i<=5; i++){
             function close(x) {
-              setTimeOut(function() {
+              setTimeout(function() {
               console.log(x);
               }, x*1000);
             }
