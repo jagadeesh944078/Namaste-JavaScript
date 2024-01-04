@@ -49,4 +49,4 @@ const obj2 = {
 
 obj2.printName();
 
-// this inside DOM => reference to HTMLelement
+// this inside DOM => reference to HTMLelement`
