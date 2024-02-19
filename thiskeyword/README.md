@@ -17,3 +17,9 @@
 // this i
 
 - arrow functions dont provide their own this binding.it retains the this value of the enclosing lexical context
+
+- **strict mode vs non strict mode**
+- non strict mode
+- if bf is present output bf or crush
+
+- if you want to call function with any object basically we use call method by passing that object reference
