@@ -4,9 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .container {
+        padding: 2rem;
+      }
+      .cell {
+        background-color: aqua;
+        padding: 2rem;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-gap: 1rem;
+      }
+      /* .flex {
+        display: flex;
+        gap: 1rem;
+      }
+      .flex > .cell {
+        flex-grow: 1;
+      }
+      .flex > .cell:nth-child(2) {
+        flex-grow: 2;
+      } */
+
+      /* .flex {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      } */
+    </style>
   </head>
   <body>
-    <h1>Promise Apis</h1>
     <script src="./index.js"></script>
+    <div class="container grid">
+      <div class="cell">
+        React is the library for web and native user interfaces. Build user
+        interfaces out of individual pieces called components written in
+        JavaScript.
+      </div>
+      <div class="cell">1</div>
+      <div class="cell">2</div>
+      <div class="cell">3</div>
+    </div>
   </body>
 </html>
